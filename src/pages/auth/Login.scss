@@ -1,0 +1,13 @@
+.login {
+  &-title {
+    text-align: center;
+  }
+  &-label {
+    color: white;
+  }
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}

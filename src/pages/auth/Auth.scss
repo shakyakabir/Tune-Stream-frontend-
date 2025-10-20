@@ -1,0 +1,40 @@
+@use "../../style/variable" as var;
+.auth-page {
+  width: 100%;
+  height: 90.9%;
+  background-image: url("/login-backgroung.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 2rem 0;
+  &-heading {
+    color: var.$white;
+    text-align: center;
+    margin-bottom: 0;
+    background-image: linear-gradient(75deg, #477af4, #8c38ea, #dd63c3);
+    -webkit-background-clip: text; /* Clips the background to text */
+    -webkit-text-fill-color: transparent;
+  }
+  &-subheading {
+    // color: var.$white;
+    color: #9aa9bd;
+    text-align: center;
+    margin-top: 0;
+  }
+  &-button-container {
+    background-color: #171a25;
+    display: flex;
+    justify-content: start;
+    border-radius: 8px;
+    padding: 5px;
+    gap: 15px;
+    margin: 15px;
+  }
+}
+
+.auth-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(19, 4, 46, 0.8); /* dark overlay */
+}
