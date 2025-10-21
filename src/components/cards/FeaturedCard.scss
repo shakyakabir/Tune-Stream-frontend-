@@ -1,0 +1,366 @@
+// @use "../style/variable" as var;
+
+// .featuredCard {
+//   background-color: #111;
+//   border-radius: 1rem;
+//   overflow: hidden;
+//   color: #fff;
+//   position: relative;
+//   transition: all 0.3s ease;
+//   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+//   &:hover {
+//     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+//     transform: translateY(-3px);
+//   }
+
+//   /* ===== Badge ===== */
+//   &-badge {
+//     position: absolute;
+//     top: 0.75rem;
+//     left: 0.75rem;
+//     background: linear-gradient(90deg, #a855f7, #ec4899);
+//     font-size: 0.75rem;
+//     font-weight: 500;
+//     padding: 0.25rem 0.75rem;
+//     border-radius: 9999px;
+//   }
+
+//   /* ===== Image ===== */
+//   &-image {
+//     position: relative;
+
+//     img {
+//       width: 100%;
+//       height: 12rem;
+//       object-fit: cover;
+//       display: block;
+//     }
+
+//     .play-btn {
+//       position: absolute;
+//       bottom: 0.5rem;
+//       right: 0.5rem;
+//       background-color: #9333ea;
+//       padding: 0.5rem;
+//       border-radius: 50%;
+//       border: none;
+//       cursor: pointer;
+//       transition: background 0.3s ease;
+
+//       &:hover {
+//         background-color: #7e22ce;
+//       }
+//     }
+//   }
+
+//   /* ===== Content ===== */
+//   &-content {
+//     padding: 1rem;
+
+//     h3 {
+//       font-size: 1.125rem;
+//       font-weight: 600;
+//       margin-bottom: 0.25rem;
+//     }
+
+//     p {
+//       font-size: 0.875rem;
+//       color: #aaa;
+//       margin: 0.25rem 0;
+//     }
+//   }
+
+//   /* ===== Tags ===== */
+//   &-tags {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 0.5rem;
+//     margin-bottom: 0.5rem;
+
+//     span {
+//       background-color: #222;
+//       color: #ccc;
+//       font-size: 0.75rem;
+//       padding: 0.25rem 0.5rem;
+//       border-radius: 9999px;
+//     }
+//   }
+
+//   /* ===== Event Info ===== */
+//   &-event {
+//     font-size: 0.875rem;
+//     color: #ccc;
+
+//     p {
+//       margin: 0.15rem 0;
+
+//       &:last-child {
+//         color: #a855f7;
+//         font-weight: 600;
+//       }
+//     }
+//   }
+
+//   /* ===== Playlist Info ===== */
+//   &-playlist {
+//     font-size: 0.875rem;
+//     color: #999;
+//   }
+
+//   /* ===== Product Info ===== */
+//   &-product {
+//     .rating {
+//       display: flex;
+//       align-items: center;
+//       gap: 0.25rem;
+//       color: #facc15;
+//       font-size: 0.875rem;
+
+//       span {
+//         color: #888;
+//       }
+//     }
+
+//     .colors {
+//       display: flex;
+//       align-items: center;
+//       gap: 0.5rem;
+//       margin-top: 0.25rem;
+
+//       p {
+//         color: #aaa;
+//         font-size: 0.875rem;
+//       }
+
+//       .color-dot {
+//         width: 1rem;
+//         height: 1rem;
+//         border-radius: 50%;
+//         border: 1px solid #444;
+//       }
+//     }
+
+//     .price-box {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//       margin-top: 0.75rem;
+
+//       .price {
+//         font-size: 1rem;
+//         font-weight: 700;
+
+//         .old-price {
+//           text-decoration: line-through;
+//           color: #666;
+//           font-size: 0.875rem;
+//           margin-left: 0.25rem;
+//         }
+//       }
+
+//       .buy-btn {
+//         background: linear-gradient(90deg, #a855f7, #ec4899);
+//         border: none;
+//         padding: 0.5rem 0.75rem;
+//         color: #fff;
+//         font-size: 0.875rem;
+//         border-radius: 0.5rem;
+//         cursor: pointer;
+//         transition: opacity 0.3s ease;
+
+//         &:hover {
+//           opacity: 0.9;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.featuredCard {
+  background-color: #111;
+  border-radius: 20px;
+  overflow: hidden;
+  color: #fff;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  &__badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(to right, #a855f7, #ec4899);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 999px;
+  }
+
+  &__imageContainer {
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__playButton {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #9333ea;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background-color: #7e22ce;
+    }
+  }
+
+  &__content {
+    padding: 16px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+
+  &__tag {
+    background-color: #222;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__subtitle {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  &__playlistInfo {
+    color: #888;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+
+  &__eventInfo {
+    font-size: 14px;
+    color: #ccc;
+    margin-top: 8px;
+
+    p {
+      margin: 2px 0;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #facc15;
+  }
+
+  &__priceRange {
+    color: #a855f7;
+    font-weight: 600;
+  }
+
+  &__productRating {
+    color: #facc15;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__reviews {
+    color: #888;
+  }
+
+  &__colors {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  &__colorsLabel {
+    font-size: 13px;
+    color: #aaa;
+  }
+
+  &__colorDot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #444;
+  }
+
+  &__productFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  &__priceSection {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__price {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__oldPrice {
+    font-size: 13px;
+    color: #666;
+    text-decoration: line-through;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(to right, #a855f7, #ec4899);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    svg {
+      font-size: 14px;
+    }
+  }
+}

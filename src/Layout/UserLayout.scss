@@ -1,0 +1,36 @@
+@use "../style/variable" as var;
+.userLayout {
+  background-color: var.$primary-color;
+  display: flex;
+
+  /* Webkit browsers */
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #572a8a;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #572a8a; /* uses your variable */
+    border-radius: 5px;
+  }
+
+  //   &::-webkit-scrollbar-thumb:hover {
+  //     background: lighten(var.$primary-color, 10%);
+  //   }
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #572a8a #222;
+
+  &-left {
+    height: 100vh;
+    overflow: auto;
+  }
+  &-right {
+    height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    padding: 0 15px;
+  }
+}

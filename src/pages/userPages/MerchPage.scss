@@ -1,0 +1,31 @@
+@use "../../style/variable" as var;
+.merch {
+  margin-top: 15px;
+  &-category {
+    &-card {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+    }
+  }
+  &-item {
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      h3 {
+        color: var.$white;
+        font-size: 1.5rem;
+      }
+      p {
+        border: 1px solid;
+        border-radius: 8px;
+        padding: 10px;
+      }
+    }
+    &-card {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+  }
+}

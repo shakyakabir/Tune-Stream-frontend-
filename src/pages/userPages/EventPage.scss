@@ -1,0 +1,9 @@
+.event {
+  margin-top: 25px;
+  &-featured {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 14px;
+    gap: 15px;
+  }
+}
