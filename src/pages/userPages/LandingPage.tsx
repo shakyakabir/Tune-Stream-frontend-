@@ -5,6 +5,8 @@ import Trending from "../../components/cards/Trending";
 import { TrendingData } from "../../components/mock/TrendingData";
 import RecentCard from "../../components/cards/RecentCard";
 import HeroComponent from "../../components/HeroSection/HeroComponent";
+import GenresCard from "../../components/Carousel/GenresCard";
+import { GenresData } from "../../components/mock/CategoryData";
 
 const LandingPage = () => {
   return (
@@ -16,8 +18,29 @@ const LandingPage = () => {
         buttonName1={"Sign In to Listen"}
         buttonName2={"Browse Playlists"}
       />
+      <GenresCard data={GenresData} />
 
       {/* {Featured Playlist} */}
+
+      <div className="landing-playlist">
+        <div className="landing-playlist-header">
+          <h3>Featured Playlist</h3>
+          <p>View all</p>{" "}
+        </div>
+
+        <div className="landing-playlist-card">
+          {playlistData.map((data) => (
+            <FeaturedCard
+              type="playlist"
+              title={data.title}
+              subtitle={data.subtitle}
+              songsCount={data.songsCount}
+              duration={data.duration}
+              image={data.image}
+            />
+          ))}
+        </div>
+      </div>
 
       <div className="landing-playlist">
         <div className="landing-playlist-header">

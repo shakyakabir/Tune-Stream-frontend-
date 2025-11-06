@@ -1,0 +1,104 @@
+.artist {
+  padding: 20px;
+  background-color: #0f0f1a;
+  color: #fff;
+  font-family: "Arial", sans-serif;
+  &-heading {
+    h1 {
+      font-size: 48px;
+      margin-bottom: 0;
+    }
+    p {
+      margin-top: 0;
+      font-size: 18px;
+      color: #727272;
+    }
+    input {
+      width: 50%;
+      padding: 15px;
+      border-radius: 8px;
+      background-color: none;
+    }
+  }
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  /* Trending Section */
+  &-trending {
+    &-cards {
+      gap: 20px;
+
+      padding-bottom: 10px;
+      display: flex;
+
+      &-card {
+        flex: 0 0 300px;
+        background: linear-gradient(135deg, #ff6ec4, #7873f5);
+        border-radius: 12px;
+        padding: 15px;
+        color: #fff;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &-info {
+          h3 {
+            margin: 0;
+            font-size: 1.2rem;
+          }
+
+          p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+          }
+
+          span {
+            font-size: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  /* Featured Artists Section */
+  .featured-artists {
+    margin-top: 30px;
+
+    .artist-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+
+      .artist-card {
+        flex: 0 0 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 1px solid rgb(66, 66, 66);
+        border-radius: 8px;
+        padding: 16px;
+
+        .artist-circle {
+          width: 180px;
+          height: 180px;
+          background: radial-gradient(circle at center, #1f1f3a, #0f0f1a);
+          border-radius: 50%;
+          margin-bottom: 10px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .verified {
+          color: #4dbfff;
+          font-size: 0.9rem;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

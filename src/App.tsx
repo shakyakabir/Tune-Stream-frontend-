@@ -5,6 +5,7 @@ import LandingPage from "./pages/userPages/LandingPage";
 import UserLayout from "./Layout/UserLayout";
 import EventPage from "./pages/userPages/EventPage";
 import MerchPage from "./pages/userPages/MerchPage";
+import ArtistPage from "./pages/userPages/ArtistPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/events" element={<EventPage />} />
             <Route path="/merch" element={<MerchPage />} />
+            <Route path="/artists" element={<ArtistPage />} />
           </Route>
           <Route path="/Login" element={<AuthPages />} />
         </Routes>
