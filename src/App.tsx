@@ -6,6 +6,10 @@ import UserLayout from "./Layout/UserLayout";
 import EventPage from "./pages/userPages/EventPage";
 import MerchPage from "./pages/userPages/MerchPage";
 import ArtistPage from "./pages/userPages/ArtistPage";
+import ArtistLayout from "./Layout/ArtistLayout";
+import Dashboard from "./pages/artistPages/Dashboard";
+import MusicManagement from "./pages/artistPages/MusicManagement";
+
 
 function App() {
   return (
@@ -19,6 +23,11 @@ function App() {
             <Route path="/artists" element={<ArtistPage />} />
           </Route>
           <Route path="/Login" element={<AuthPages />} />
+
+          <Route element={<ArtistLayout/>}>
+          <Route path="/dashboard" element={<Dashboard/>} />          
+          <Route path="/music" element={<MusicManagement/>} />          
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

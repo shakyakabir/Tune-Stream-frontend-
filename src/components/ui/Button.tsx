@@ -2,7 +2,7 @@ import React from "react";
 import "./Button.scss";
 
 type ButtonProps = {
-  text: string;
+  text?: string;
   varient: string;
   type: "submit" | "button";
   onClick?: () => void;

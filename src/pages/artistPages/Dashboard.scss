@@ -1,0 +1,28 @@
+.dashboard {
+  background: #0f0f1a;
+  min-height: 100vh;
+  padding: 24px;
+  color: white;
+
+  .stats-section {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .section-title {
+    margin: 24px 0 12px;
+    font-size: 1.2rem;
+  }
+
+  .quick-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .recent-activity {
+    margin-top: 16px;
+  }
+}

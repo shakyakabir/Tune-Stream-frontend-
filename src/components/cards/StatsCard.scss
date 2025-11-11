@@ -1,0 +1,21 @@
+.stats-card {
+  background: #1e1e2f;
+  border-radius: 12px;
+  padding: 16px;
+  color: #fff;
+  flex: 1;
+  min-width: 180px;
+
+  .stats-title {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+  .stats-value {
+    font-size: 1.8rem;
+    margin: 6px 0;
+  }
+  .stats-change {
+    font-size: 0.8rem;
+    color: #a855f7;
+  }
+}
