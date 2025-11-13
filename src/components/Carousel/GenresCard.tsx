@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../ui/Button";
 import "./GenresCard.scss";
+import { FaArrowLeft,FaArrowRight } from "react-icons/fa6";
 
 export interface Genre {
   title: string;
@@ -13,6 +14,9 @@ interface GenresCardProps {
 }
 
 const GenresCard: React.FC<GenresCardProps> = ({ data, visibleCount = 6 }) => {
+
+  const colors = ["#90284a","#7e3016","#4a3992","#145e89","#8f6605"];
+
   const [current, setCurrent] = useState(0);
 
   const prevSlide = () => {
@@ -34,9 +38,9 @@ const GenresCard: React.FC<GenresCardProps> = ({ data, visibleCount = 6 }) => {
       >
         {data.map((item, index) => (
           <div
-            key={index}
+            key={index} 
             className="carousel-card"
-            style={{ flex: `0 0 ${cardWidth}%` }}
+            style={{ flex: `0 0 ${cardWidth}%` ,  backgroundColor: colors[index % colors.length], }}
           >
             <p className="carousel-card-title">{item.title}</p>
             <h2 className="carousel-card-title">{item.title}</h2>
@@ -46,8 +50,8 @@ const GenresCard: React.FC<GenresCardProps> = ({ data, visibleCount = 6 }) => {
       </div>
 
       <div className="carousel-button">
-        <Button text={"<"} varient={""} type={"button"} onClick={prevSlide} />
-        <Button text={">"} varient={""} type={"button"} onClick={nextSlide} />
+        <Button icon={<FaArrowLeft/>} varient={""} type={"button"} onClick={prevSlide} />
+        <Button icon={<FaArrowRight/>}  varient={""} type={"button"} onClick={nextSlide} />
       </div>
     </div>
   );

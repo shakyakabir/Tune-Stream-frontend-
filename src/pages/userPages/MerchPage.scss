@@ -1,6 +1,6 @@
 @use "../../style/variable" as var;
 .merch {
-  margin-top: 15px;
+  margin-top: 25px;;
   &-category {
     &-card {
       display: grid;
@@ -9,17 +9,20 @@
     }
   }
   &-item {
-    &-header {
+   &-header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       h3 {
         color: var.$white;
-        font-size: 1.5rem;
+            font-size: 1.875rem;
       }
       p {
-        border: 1px solid;
+            border: 1px solid rgb(65, 65, 65);
+        background-color: #0d1016;
         border-radius: 8px;
-        padding: 10px;
+        padding: 5px;
+        height: 25px;
       }
     }
     &-card {

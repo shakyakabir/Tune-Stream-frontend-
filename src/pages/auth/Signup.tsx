@@ -3,18 +3,54 @@ import React, { useState } from "react";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import "./Login.scss";
+import { AuthRegister } from "../../api/Service/authService";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ username: "", email: "", password: "", name:"", contact:"",role:"user" });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
+  const navigate=useNavigate();
+const handleOnClick=async(e: React.MouseEvent<HTMLButtonElement>)=>{
+  e.preventDefault();
+  // Handle login logic here
+  const response=await AuthRegister(form);
+console.log("Signup Response:", response);
+  if(response){
+    console.log("Registration successful", response);
+navigate("/");
+  }
+} 
+
   return (
     <div className="login">
       <form className="login-form">
         <label className="login-label" htmlFor="">
           Name
+        </label>
+        <Input
+          type="text"
+          name="username"
+          value={form.username}
+          onchange={handleChange}
+          placeholder="Enter Your name"
+        />
+        <label className="login-label" htmlFor="">
+          email
+        </label>
+        <Input
+          type="email"
+          name="email"
+          value={form.email}
+          onchange={handleChange}
+          placeholder="Enter Your email"
+        />
+
+
+ <label className="login-label" htmlFor="">
+          Fullname
         </label>
         <Input
           type="text"
@@ -24,15 +60,18 @@ const Signup = () => {
           placeholder="Enter Your name"
         />
         <label className="login-label" htmlFor="">
-          Password
+          contact
         </label>
         <Input
-          type="email"
-          name="email"
-          value={form.email}
+          type="number"
+          name="contact"
+          value={form.contact}
           onchange={handleChange}
           placeholder="Enter Your email"
         />
+
+
+
         <label className="login-label" htmlFor="">
           Password
         </label>
@@ -46,7 +85,7 @@ const Signup = () => {
         <div className="login-links">
           <a href="#">Forgot Password?</a>
         </div>
-        <Button text={"Login"} varient={"gradient"} type={"submit"} />
+        <Button text={"Login"} onClick={handleOnClick} varient={"gradient"} type={"submit"} />
       </form>
     </div>
   );

@@ -5,7 +5,7 @@
 
   /* Webkit browsers */
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 2px;
   }
   &::-webkit-scrollbar-track {
     background: #572a8a;
@@ -22,15 +22,25 @@
   /* Firefox */
   scrollbar-width: thin;
   scrollbar-color: #572a8a #222;
+  &-musicPlayer {
+  position: fixed;
+  background-color: var.$primary-color;
+  height: 90px;
+
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+  }
 
   &-left {
     height: 100vh;
     overflow: auto;
+    width: 18%;
   }
   &-right {
     height: 100vh;
     overflow-y: auto;
-    width: 100%;
+    width: 82%;
     padding: 0 15px;
   }
 }

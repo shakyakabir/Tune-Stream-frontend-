@@ -13,32 +13,32 @@ import "./UserSidebar.scss";
 const sidebarbrowserdata = [
   {
     name: "Discover",
-    icon: <FaRegCompass size={13} />,
+    icon: <FaRegCompass size={15} />,
     path: "/", // Landing/Home
   },
   {
     name: "Library",
-    icon: <FaMusic size={12} />,
+    icon: <FaMusic size={15} />,
     path: "/library",
   },
   {
     name: "Events",
-    icon: <FaCalendar size={12} />,
+    icon: <FaCalendar size={15} />,
     path: "/events",
   },
   {
     name: "Merch",
-    icon: <FaShoppingBag size={13} />,
+    icon: <FaShoppingBag size={15} />,
     path: "/merch",
   },
   {
     name: "Artists",
-    icon: <FaMicrophone size={13} />,
+    icon: <FaMicrophone size={15}  />,
     path: "/artists",
   },
   {
     name: "Artist Hub",
-    icon: <MdOutlinePeopleOutline size={13} />,
+    icon: <MdOutlinePeopleOutline size={15}/>,
     path: "/artist-hub",
   },
 ];
@@ -53,9 +53,9 @@ const UserSidebar = () => {
 
       <div className="sidebar-browse">
         <h3>Browse</h3>
-        <ul>
+        <ul className="sidebar-browse-ul">
           {sidebarbrowserdata.map((data, index) => (
-            <div className="sidebar-browse-list" key={index}>
+            <div className="sidebar-browse-ul-list" key={index}>
               <li onClick={() => Navigate(data.path)}>
                 <span>{data.icon}</span>
                 <span> {data.name}</span>
@@ -66,7 +66,7 @@ const UserSidebar = () => {
         <Button text={"Get Premium"} varient={"gradient"} type={"submit"} />
         <Button
           text={"Sign In"}
-          varient={"not-active"}
+          varient={"border"}
           type={"submit"}
           onClick={() => {
             Navigate("/login");

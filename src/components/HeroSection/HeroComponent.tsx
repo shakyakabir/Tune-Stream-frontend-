@@ -8,12 +8,14 @@ interface HeroProps {
   buttonName1?: string;
   buttonName2?: string;
   image?: string;
+  icon?: React.ReactNode; 
 }
 const HeroComponent: React.FC<HeroProps> = ({
   heading,
   subHeading,
   buttonName1,
   buttonName2,
+  icon,
   image,
 }) => {
   return (
@@ -24,10 +26,15 @@ const HeroComponent: React.FC<HeroProps> = ({
           <p>{subHeading}</p>
           <div className="hero-info-button-container">
             {buttonName1 &&
-            <Button text={buttonName1} varient={"active"} type={"submit"} />
+            
+                      
+            <Button text={buttonName1} icon={icon} varient={"white"} type={"submit"} />
+          
           }
               {buttonName2 &&
-            <Button text={buttonName2} varient={"active"} type={"submit"} />}
+            <Button text={buttonName2} varient={"active"} type={"submit"} />
+            }
+
           </div>
         </div>
         {image && (

@@ -5,15 +5,17 @@
   background-image: var.$gardient-color;
   border-radius: 16px;
   padding: 30px;
+  height: 200px;
   color: var.$white;
   &-info {
     h2 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
       margin: 0;
+   
     }
     p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin-bottom: 1.5rem;
       font-weight: 400;
       margin-top: 0;
@@ -28,8 +30,8 @@
   &-image {
     border: 1px solid;
     border-radius: 50%;
-    height: 200px;
-    width: 200px;
+        height: 180px;
+    width: 180px;
     overflow: hidden;
     img {
       height: 200px;

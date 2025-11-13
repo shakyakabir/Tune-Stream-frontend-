@@ -178,7 +178,8 @@
 // }
 
 .featuredCard {
-  background-color: #111;
+  background-color: #131720;
+  border: 1px solid #444444;
   border-radius: 20px;
   overflow: hidden;
   color: #fff;
@@ -281,10 +282,19 @@
     gap: 4px;
     color: #facc15;
   }
-
-  &__priceRange {
-    color: #a855f7;
-    font-weight: 600;
+&__eventFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    &__priceRange {
+      color: #a855f7;
+      font-weight: 600;
+    }
+    button{
+      margin: 0;
+      width: 115px!important;
+    }
   }
 
   &__productRating {

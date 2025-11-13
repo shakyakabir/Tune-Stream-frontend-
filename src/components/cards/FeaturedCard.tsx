@@ -1,7 +1,10 @@
 import React from "react";
 import type { FeaturedCard as FeaturedCardType } from "../types/cards";
 import { FaPlay, FaStar, FaShoppingCart } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
 import "./FeaturedCard.scss";
+import Button from "../ui/Button";
+import { LuTicket } from "react-icons/lu";
 
 const FeaturedCard: React.FC<FeaturedCardType> = ({
   type,
@@ -72,10 +75,13 @@ const FeaturedCard: React.FC<FeaturedCardType> = ({
                 <FaStar size={12} /> {rating}
               </p>
             )}
-            {date && <p>📅 {date}</p>}
-            {location && <p>📍 {location}</p>}
+            {date && <p> <FaRegCalendarAlt/> <span>{date}</span></p>}
+            {location && <p> {location}</p>}
             {priceRange && (
-              <p className="featuredCard__priceRange">From {priceRange}</p>
+              <div className="featuredCard__eventFooter">
+              <p className="featuredCard__eventFooter__priceRange">{priceRange}</p>
+            <Button text="Get Ticket" icon={<LuTicket/>} varient={"gradient"} type={"button"}/>
+            </div>
             )}
           </div>
         )}

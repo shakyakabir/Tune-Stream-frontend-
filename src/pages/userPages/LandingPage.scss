@@ -6,16 +6,33 @@
     &-header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       h3 {
         color: var.$white;
-        font-size: 1.5rem;
+            font-size: 1.875rem;
       }
       p {
         border: 1px solid;
         border-radius: 8px;
-        padding: 10px;
+        padding: 5px;
+        height: 30px;
       }
     }
+        &-recommended-card {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      .featuredCard__imageContainer img{
+height: 150px;
+      }
+      h3{
+        margin: 0;
+      }
+      p{
+        margin: 0;
+      }
+    }
+  
     &-card {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -27,18 +44,26 @@
     gap: 15px;
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 100px;
     &-trending {
       width: 70%;
       height: fit-content;
-      padding: 10px;
-      border-radius: 16px;
-      background-color: #111;
+      &-content{
+        padding: 10px;
+        border-radius: 16px;
+        background-color: #131720;
+  border: 1px solid rgb(53, 53, 53);
+      }
     }
     &-recent {
       width: 30%;
-      padding: 10px;
-      border-radius: 16px;
-      background-color: #111;
+      &-content{
+        padding: 10px;
+          border-radius: 16px;
+        background-color: #131720;
+        border: 1px solid rgb(53, 53, 53);
+
+      }
     }
   }
 }
