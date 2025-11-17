@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import type { FeaturedCard as FeaturedCardType } from "../types/cards";
 import { FaPlay, FaStar, FaShoppingCart } from "react-icons/fa";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import "./FeaturedCard.scss";
 import Button from "../ui/Button";
 import { LuTicket } from "react-icons/lu";
+import { MusicContext } from "../../context/MusicContext";
 
 const FeaturedCard: React.FC<FeaturedCardType> = ({
   type,
@@ -25,7 +26,19 @@ const FeaturedCard: React.FC<FeaturedCardType> = ({
   colors = [],
   buttonText,
   onButtonClick,
+  audioUrl
 }) => {
+
+ const { setCurrentSong } = useContext(MusicContext);
+
+const handlePlay = () => {
+  setCurrentSong({
+    title: title,
+    artist: subtitle || "Unknown Artist",
+    image: image,
+    url: audioUrl,
+  });
+};
   return (
     <div className="featuredCard">
       {/* Badge */}
@@ -38,7 +51,7 @@ const FeaturedCard: React.FC<FeaturedCardType> = ({
         )}
 
         {type === "playlist" && (
-          <button className="featuredCard__playButton">
+          <button className="featuredCard__playButton" onClick={handlePlay}>
             <FaPlay size={14} />
           </button>
         )}

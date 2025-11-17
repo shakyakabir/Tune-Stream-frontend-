@@ -37,7 +37,7 @@ const LandingPage = () => {
             <FeaturedCard
               type="playlist"
               title={data.title}
-              
+              audioUrl={data.audioUrl}
               songsCount={data.songsCount}
               duration={data.duration}
               image={data.image}

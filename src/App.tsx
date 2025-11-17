@@ -11,17 +11,21 @@ import Dashboard from "./pages/artistPages/Dashboard";
 import MusicManagement from "./pages/artistPages/MusicManagement";
 
 
+
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+
+         
           <Route element={<UserLayout />}>
             <Route path="/" element={<LandingPage />} />
             <Route path="/events" element={<EventPage />} />
             <Route path="/merch" element={<MerchPage />} />
             <Route path="/artists" element={<ArtistPage />} />
           </Route>
+           
           <Route path="/Login" element={<AuthPages />} />
 
           <Route element={<ArtistLayout/>}>

@@ -14,6 +14,7 @@ export interface FeaturedCard {
   // Playlist
   songsCount?: number;
   duration?: string;
+  audioUrl?: string;
 
   // Event
   date?: string;
