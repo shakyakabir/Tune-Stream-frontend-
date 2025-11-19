@@ -1,16 +1,17 @@
-import React from "react";
+
 import { Outlet } from "react-router-dom";
 
-import "./UserLayout.scss";
+import "./ArtistLayout.scss";
 import ArtistSidebar from "../components/sidebar/ArtistSidebar";
 
 const ArtistLayout = () => {
   return (
-    <div className="userLayout">
-      <div className="userLayout-left">
+    <div className="artistLayout">
+      <div className="artistLayout-left">
+      <div className="artistLayout-left-line"></div>
         <ArtistSidebar />
       </div>
-      <div className="userLayout-right">
+      <div className="artistLayout-right">
         <Outlet />
       </div>
     </div>

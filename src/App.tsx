@@ -9,6 +9,9 @@ import ArtistPage from "./pages/userPages/ArtistPage";
 import ArtistLayout from "./Layout/ArtistLayout";
 import Dashboard from "./pages/artistPages/Dashboard";
 import MusicManagement from "./pages/artistPages/MusicManagement";
+import AnalyticsPage from "./pages/artistPages/AnalyticsPage";
+import MerchandiseManagement from "./pages/artistPages/MerchandiseManagement";
+import Earning from "./pages/artistPages/Earning";
 
 
 
@@ -31,6 +34,9 @@ function App() {
           <Route element={<ArtistLayout/>}>
           <Route path="/dashboard" element={<Dashboard/>} />          
           <Route path="/music" element={<MusicManagement/>} />          
+          <Route path="/merchandise" element={<MerchandiseManagement/>} />          
+          <Route path="/earning" element={<Earning/>} />          
+          <Route path="/analytics" element={<AnalyticsPage/>} />          
           </Route>
         </Routes>
       </BrowserRouter>

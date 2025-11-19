@@ -1,0 +1,128 @@
+.artist-table {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  overflow: hidden;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    text-align: left;
+    padding: 14px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #7a7a7a;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  td {
+    padding: 18px 0;
+    border-bottom: 1px solid #f3f3f3;
+    font-size: 15px;
+    color: #333;
+  }
+
+  /* -----------------------------------
+     ARTIST ROW
+  ----------------------------------- */
+  &-row {
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #fafafa;
+    }
+
+    &-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      span {
+        font-size: 13px;
+        color: #888;
+      }
+
+      .artist-row-name {
+        font-weight: 600;
+        color: #222;
+      }
+    }
+
+    /* STATUS BADGES */
+    &-status {
+      padding: 6px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 500;
+
+      &.pending {
+        background: #fff7c2;
+        color: #b39200;
+      }
+
+      &.approved {
+        background: #d8f7df;
+        color: #188c45;
+      }
+
+      &.underreview {
+        background: #dde8ff;
+        color: #2f6fd4;
+      }
+    }
+
+    /* ACTION BUTTONS */
+    &-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      button {
+        width: 32px;
+        height: 32px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 14px;
+        transition: 0.2s;
+
+        &.approve {
+          background: #22c55e;
+
+          &:hover {
+            background: #18a34a;
+          }
+        }
+
+        &.reject {
+          background: #ef4444;
+
+          &:hover {
+            background: #c53131;
+          }
+        }
+
+        &.info {
+          background: #4b5563;
+
+          &:hover {
+            background: #374151;
+          }
+        }
+      }
+    }
+  }
+}

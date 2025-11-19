@@ -9,7 +9,8 @@ import { MdOutlinePeopleOutline } from "react-icons/md";
 
 import { useNavigate } from "react-router-dom";
 
-import "./UserSidebar.scss";
+import "./ArtistSidebar.scss";
+import Button from "../ui/Button";
 const sidebarbrowserdata = [
   {
     name: "Dashboard",
@@ -52,17 +53,20 @@ const sidebarbrowserdata = [
 const ArtistSidebar = () => {
   const Navigate = useNavigate();
   return (
-    <div className="sidebar">
-      <div className="sidebar-logo">
+    <div className="artist-sidebar">
+        
+      <div className="artist-sidebar-logo">
         <img src="/logo.png" alt="" />
         <h3>Tune Stream</h3>
       </div>
+        <hr />
 
-      <div className="sidebar-browse">
+     <div className="artist-sidebar-container">
+      <div className="artist-sidebar-container-browse">
         <h3>Browse</h3>
-        <ul>
+        <ul className="artist-sidebar-container-browse-ul">
           {sidebarbrowserdata.map((data, index) => (
-            <div className="sidebar-browse-list" key={index}>
+            <div className="artist-sidebar-container-browse-ul-list" key={index}>
               <li onClick={() => Navigate(data.path)}>
                 <span>{data.icon}</span>
                 <span> {data.name}</span>
@@ -71,6 +75,11 @@ const ArtistSidebar = () => {
           ))}
         </ul>
       </div>
+      <div>
+      <hr />
+      <Button text={"artist-sidebar-button"} onClick={() => Navigate('/upload-music')} varient={"gradient"} type={"button"}/>
+   </div>
+    </div>
     </div>
   );
 };

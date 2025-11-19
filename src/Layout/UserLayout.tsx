@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Outlet } from "react-router-dom";
 import UserSidebar from "../components/sidebar/UserSidebar";
 import "./UserLayout.scss";
@@ -8,7 +8,7 @@ const UserLayout = () => {
   return (
     <div className="userLayout">
       <div className="userLayout-musicPlayer">
-      <MusicPlayer music={"kk"}/>
+      <MusicPlayer />
       </div>
       <div className="userLayout-left">
         <UserSidebar />
