@@ -1,7 +1,6 @@
-.artist-sidebar{
+.artist-sidebar {
   padding: 20px;
-    &-logo{
-
+  &-logo {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -10,62 +9,78 @@
       height: 50px;
     }
     h3 {
-      
       color: white;
       font-size: 1rem;
       margin: 0;
     }
-  
-    hr{
-        margin-top: 20px;
-        border: 0.5px solid #2c2f32;
+
+    hr {
+      margin-top: 20px;
+      border: 0.5px solid #2c2f32;
     }
   }
-  &-container{
-      display: flex;
+  &-container {
+    display: flex;
     flex-direction: column;
     height: 580px;
     justify-content: space-between;
- 
-  &-browse {
 
-  h3 {
-  padding-left: 5px;
-  font-size: 0.8rem;
-  color: #a9aeb3;
-  font-weight: 500;
-  margin-bottom: 0;
-  }
-  &-ul {
-   padding: 0 15px;
-  list-style: none;
-  margin: 0;
-  &-list {
-   
-      padding: 0;
-      li {
-        display: flex;
-        color: white;
-                gap: 10px;
-        align-items: center;
-        font-weight: 400;
-        
-        span{
-          font-size: 16px;
-          margin-top: 15px;
-          
+    &-browse {
+      h3 {
+        padding-left: 5px;
+        font-size: 0.8rem;
+        color: #a9aeb3;
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+      &-ul {
+        padding: 0 15px;
+        list-style: none;
+        margin: 0;
+        &-list {
+          padding: 0;
+          li {
+            display: flex;
+            color: white;
+            gap: 10px;
+            align-items: center;
+            font-weight: 400;
+
+            span {
+              font-size: 16px;
+              margin-top: 15px;
+            }
+          }
         }
       }
     }
-}
-  
-}
-    
-hr{
-               border: 0.5px solid #2c2f32;
-    }
-    button{
 
+    hr {
+      border: 0.5px solid #2c2f32;
     }
-    }
+    &-profile {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      &-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgb(140, 140, 140);
+      }
+      &-info {
+        margin-left: 10px;
+        h3 {
+          color: white;
+          font-size: 1rem;
+          margin: 0;
         }
+        p {
+          color: #a9aeb3;
+          font-size: 0.8rem;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

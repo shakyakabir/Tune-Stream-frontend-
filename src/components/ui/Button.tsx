@@ -6,13 +6,26 @@ type ButtonProps = {
   varient: string;
   icon?: React.ReactNode;
   type: "submit" | "button";
-  onClick?:(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)  => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  disabled?: boolean;
 };
 
-const Button: React.FC<ButtonProps> = ({ text,icon, varient, onClick, type }) => {
+const Button: React.FC<ButtonProps> = ({
+  text,
+  icon,
+  varient,
+  onClick,
+  type,
+  disabled,
+}) => {
   return (
-    <button type={type} className={`button-${varient}`} onClick={onClick}>
-   {icon&& <span className="button-icon">{icon}</span>}
+    <button
+      type={type}
+      className={`button-${varient}`}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {icon && <span className="button-icon">{icon}</span>}
       {text}
     </button>
   );

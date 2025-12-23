@@ -3,8 +3,8 @@ import "./Input.scss";
 type InputProps = {
   type: string;
   name: string;
-  onchange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
   placeholder: string;
 };
 
@@ -12,7 +12,7 @@ const Input: React.FC<InputProps> = ({
   type,
   name,
   placeholder,
-  onchange,
+  onChange,
   value,
 }) => {
   return (
@@ -21,9 +21,9 @@ const Input: React.FC<InputProps> = ({
         className="input-form"
         type={type}
         name={name}
-        value={value}
+        {...(type !== "file" ? { value } : {})}
         placeholder={placeholder}
-        onChange={onchange}
+        onChange={onChange}
       />
     </>
   );

@@ -10,6 +10,7 @@ import { MusicContext } from "../../context/MusicContext";
 const FeaturedCard: React.FC<FeaturedCardType> = ({
   type,
   image,
+  size,
   title,
   subtitle,
   rating,
@@ -26,19 +27,18 @@ const FeaturedCard: React.FC<FeaturedCardType> = ({
   colors = [],
   buttonText,
   onButtonClick,
-  audioUrl
+  audioUrl,
 }) => {
+  const { setCurrentSong } = useContext(MusicContext);
 
- const { setCurrentSong } = useContext(MusicContext);
-
-const handlePlay = () => {
-  setCurrentSong({
-    title: title,
-    artist: subtitle || "Unknown Artist",
-    image: image,
-    url: audioUrl,
-  });
-};
+  const handlePlay = () => {
+    setCurrentSong({
+      title: title,
+      artist: subtitle || "Unknown Artist",
+      image: image,
+      url: audioUrl,
+    });
+  };
   return (
     <div className="featuredCard">
       {/* Badge */}
@@ -88,13 +88,25 @@ const handlePlay = () => {
                 <FaStar size={12} /> {rating}
               </p>
             )}
-            {date && <p> <FaRegCalendarAlt/> <span>{date}</span></p>}
+            {date && (
+              <p>
+                {" "}
+                <FaRegCalendarAlt /> <span>{date}</span>
+              </p>
+            )}
             {location && <p> {location}</p>}
             {priceRange && (
               <div className="featuredCard__eventFooter">
-              <p className="featuredCard__eventFooter__priceRange">{priceRange}</p>
-            <Button text="Get Ticket" icon={<LuTicket/>} varient={"gradient"} type={"button"}/>
-            </div>
+                <p className="featuredCard__eventFooter__priceRange">
+                  {priceRange}
+                </p>
+                <Button
+                  text="Get Ticket"
+                  icon={<LuTicket />}
+                  varient={"gradient"}
+                  type={"button"}
+                />
+              </div>
             )}
           </div>
         )}
@@ -112,7 +124,7 @@ const handlePlay = () => {
                 )}
               </div>
             )}
-
+            <p>size:{size}</p>
             {colors.length > 0 && (
               <div className="featuredCard__colors">
                 <p className="featuredCard__colorsLabel">Colors:</p>

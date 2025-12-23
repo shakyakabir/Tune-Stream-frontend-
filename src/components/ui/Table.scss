@@ -3,17 +3,20 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-  width: 100%;
-  overflow: hidden;
 
   table {
     width: 100%;
     border-collapse: collapse;
   }
 
+  thead {
+    background-color: #f1f3f4;
+    border-radius: 80px;
+    padding: 100px;
+  }
   th {
     text-align: left;
-    padding: 14px 0;
+    padding: 14px 30px;
     font-size: 14px;
     font-weight: 600;
     color: #7a7a7a;
@@ -21,7 +24,7 @@
   }
 
   td {
-    padding: 18px 0;
+    padding: 18px 30px;
     border-bottom: 1px solid #f3f3f3;
     font-size: 15px;
     color: #333;
@@ -43,15 +46,21 @@
       gap: 12px;
 
       img {
-        width: 45px;
-        height: 45px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         object-fit: cover;
       }
+      p {
+        font-weight: bold;
+        color: #4b4b4b;
+        margin-bottom: 0;
+      }
 
       span {
-        font-size: 13px;
-        color: #888;
+        color: #5b5b5b;
+        font-weight: 400;
+        font-size: 0.9rem;
       }
 
       .artist-row-name {

@@ -31,41 +31,39 @@ const Table: React.FC<ArtistTableProps> = ({ data }) => {
         </thead>
 
         <tbody>
-
           {/* Only ONE dataset is loaded → no map */}
-          {data[0] && (
-            <tr className="artist-row">
-              <td className="artist-row-info">
-                <img src={data[0].avatar} alt={data[0].name} />
+          {data.map((artist, index) => (
+            <tr key={index} className="artist-table-row">
+              <td className="artist-table-row-info">
+                <img src={artist.avatar} alt={artist.name} />
                 <div>
-                  <p className="artist-row-name">{data[0].name}</p>
-                  <span>{data[0].email}</span>
+                  <p className="artist-table-row-name">{artist.name}</p>
+                  <span>{artist.email}</span>
                 </div>
               </td>
 
-              <td>{data[0].genre}</td>
-              <td>{data[0].submitted}</td>
+              <td>{artist.genre}</td>
+              <td>{artist.submitted}</td>
 
               <td>
                 <span
-                  className={`artist-row-status ${data[0].status
+                  className={`artist-table-row-status ${artist.status
                     .replace(" ", "")
                     .toLowerCase()}`}
                 >
-                  {data[0].status}
+                  {artist.status}
                 </span>
               </td>
 
-              <td>{data[0].followers}</td>
+              <td>{artist.followers}</td>
 
-              <td className="artist-row-actions">
+              <td className="artist-table-row-actions">
                 <button className="approve">✔</button>
                 <button className="reject">✘</button>
                 <button className="info">ℹ</button>
               </td>
             </tr>
-          )}
-
+          ))}
         </tbody>
       </table>
     </div>

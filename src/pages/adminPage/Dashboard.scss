@@ -1,0 +1,45 @@
+.admin-dashboard {
+  padding: 20px;
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    .left-controls {
+      display: flex;
+      gap: 12px;
+
+      .search-input {
+        width: 220px;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      .status-select {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+        background: white;
+      }
+    }
+
+    .stats {
+      font-size: 14px;
+
+      .total {
+        margin-right: 12px;
+        color: #333;
+      }
+
+      .pending {
+        color: #ff7a00;
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.wrapper {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  color: black;
+
+  &-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+  }
+
+  &-name {
+    font-weight: 600;
+  }
+
+  &-genre {
+    color: #777;
+    font-size: 13px;
+  }
+
+  &-arrow {
+    font-size: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &-viewBtn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #3b82f6;
+    color: white;
+    border-radius: 10px;
+    margin-top: 12px;
+  }
+}

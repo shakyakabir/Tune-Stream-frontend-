@@ -68,6 +68,7 @@
   /* Featured Artists Section */
   .featured-artists {
     margin-top: 30px;
+    margin-bottom: 70px;
 
     .artist-cards {
       display: grid;
@@ -91,6 +92,12 @@
           border-radius: 50%;
           margin-bottom: 10px;
           border: 1px solid rgba(255, 255, 255, 0.1);
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
         }
 
         .verified {

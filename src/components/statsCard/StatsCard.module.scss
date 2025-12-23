@@ -1,0 +1,30 @@
+.card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+
+  &-label {
+    font-size: 14px;
+    color: #666;
+  }
+
+  &-value {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 3px 0;
+    color: #1c1c1c;
+  }
+
+  &-change {
+    font-size: 14px;
+
+    &.up {
+      color: #24c26a;
+    }
+
+    &.down {
+      color: #e54d4d;
+    }
+  }
+}

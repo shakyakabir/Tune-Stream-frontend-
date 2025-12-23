@@ -2,26 +2,66 @@ import React, { useState } from "react";
 import "./MusicManagement.scss";
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
-
+import { UploadMusic } from "../../api/Service/Artist/UploadMusic";
 
 const MusicManagement: React.FC = () => {
+  const [isUploading, setIsUploading] = useState(false);
   const [formData, setFormData] = useState({
-    trackTitle: "",
-    artistName: "",
+    title: "",
+    artist_name: "",
     album: "",
     genre: "",
-    audioFile: "",
-    coverImage: "",
+    file: null as File | null,
+    image: null as File | null,
   });
 
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, type, value, files } = e.target;
+
+    if (type === "file" && files) {
+      setFormData({ ...formData, [name]: files[0] }); // store first file
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Uploaded Track:", formData);
+    setIsUploading(true);
+    const data = new FormData();
+    data.append("title", formData.title);
+    data.append("artist_name", formData.artist_name);
+    data.append("album", formData.album);
+    data.append("genre", formData.genre);
+    if (formData.file) data.append("file", formData.file);
+    if (formData.image) data.append("image", formData.image);
+
+    // ✅ Verify FormData content
+    for (const [key, value] of data.entries()) {
+      console.log(key, value);
+    }
+
+    try {
+      await UploadMusic(data); // No 'as any' needed if UploadMusic accepts FormData
+      alert("Track uploaded successfully!");
+      setFormData({
+        title: "",
+        artist_name: "",
+        album: "",
+        genre: "",
+        file: null,
+        image: null,
+      });
+    } catch (error) {
+      console.error("Upload failed:", error);
+      alert("Failed to upload track.");
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -30,7 +70,7 @@ const MusicManagement: React.FC = () => {
       <p className="subtitle">Upload and manage your tracks</p>
 
       <div className="upload-section">
-        <h3>📤 Upload New Track</h3>
+        <h3>Upload New Track</h3>
         <p>Share your latest creation with your fans</p>
 
         <form onSubmit={handleSubmit} className="upload-form">
@@ -39,20 +79,20 @@ const MusicManagement: React.FC = () => {
               <label>Track Title *</label>
               <Input
                 type="text"
-                name="trackTitle"
+                name="title"
                 placeholder="Enter track title"
-                value={formData.trackTitle}
-                onchange={handleChange}
+                value={formData.title}
+                onChange={handleChange}
               />
             </div>
             <div className="form-group">
               <label>Artist Name</label>
               <Input
                 type="text"
-                name="artistName"
+                name="artist_name"
                 placeholder="Enter artist name"
-                value={formData.artistName}
-                onchange={handleChange}
+                value={formData.artist_name}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -65,7 +105,7 @@ const MusicManagement: React.FC = () => {
                 name="album"
                 placeholder="Enter album name"
                 value={formData.album}
-                onchange={handleChange}
+                onChange={handleChange}
               />
             </div>
             <div className="form-group">
@@ -75,7 +115,7 @@ const MusicManagement: React.FC = () => {
                 name="genre"
                 placeholder="e.g., Pop, Rock, Hip-Hop"
                 value={formData.genre}
-                onchange={handleChange}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -85,32 +125,45 @@ const MusicManagement: React.FC = () => {
               <label>Audio File *</label>
               <Input
                 type="file"
-                name="audioFile"
                 placeholder=""
-                value={formData.audioFile}
-                onchange={handleChange}
+                name="file"
+                onChange={handleChange}
               />
             </div>
             <div className="form-group">
               <label>Cover Image</label>
-              <Input
+              {/* <Input
                 type="file"
                 name="coverImage"
                 placeholder=""
                 value={formData.coverImage}
                 onchange={handleChange}
+              /> */}
+              <Input
+                type="file"
+                name="image"
+                onChange={handleChange}
+                placeholder={""}
               />
             </div>
           </div>
-
-          <Button text="Upload Track" type="submit" varient="primary" />
+          {isUploading ? (
+            <Button
+              text="Uploading..."
+              type="submit"
+              varient="primary"
+              disabled
+            />
+          ) : (
+            <Button text="Upload Track" type="submit" varient="gradient" />
+          )}
         </form>
       </div>
 
       <div className="your-tracks">
         <h3>Your Tracks</h3>
         <div className="empty-tracks">
-          🎵 No tracks yet. Upload your first track to get started!
+          No tracks yet. Upload your first track to get started!
         </div>
       </div>
     </div>

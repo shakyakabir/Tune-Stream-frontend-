@@ -1,68 +1,67 @@
-.musicPlayer{
-    display: grid;
-   grid-template-columns: repeat(3,1fr);
-   gap: 35px;
-    margin-top: 15px;
-   
-    &-info{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        &-left{
+.musicPlayer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  margin-top: 15px;
+
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-left {
       display: flex;
       flex-direction: row;
       justify-content: center;
       margin-left: 15px;
-      img{
+      img {
         height: 60px;
         border-radius: 8px;
       }
-      &-name{
+      &-name {
         display: flex;
         flex-direction: column;
         justify-content: center;
         margin-left: 10px;
         color: white;
         font-size: 1rem;
-        h5{
-            margin: 0;
-            font-size: 1.2rem;
-        color: white;
+        h5 {
+          margin: 0;
+          font-size: 1.2rem;
+          color: white;
         }
-        p{
-            margin: 0;
-            color: #a9aeb3;
-            font-size: 0.875rem;
+        p {
+          margin: 0;
+          color: #a9aeb3;
+          font-size: 0.875rem;
         }
-    }
       }
     }
-    &-control{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2px;
-        width: 100%;
-       &-icons{
-        display: flex;
-    
-        gap: 25px;
-        color: white;
-        
-       }
-       &-progress{
-        input{
-        width: 100%;
-        }
-       }
+  }
+  &-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    width: 100%;
+    &-icons {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      color: white;
     }
-    &-extra{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-right: 15px;
-        gap: 15px;
-        color: white;
+    &-progress {
+      input {
+        width: 100%;
+      }
     }
+  }
+  &-extra {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 15px;
+    gap: 15px;
+    color: white;
+  }
 }

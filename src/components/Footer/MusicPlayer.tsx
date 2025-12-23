@@ -1,4 +1,3 @@
-
 // import React, { useContext, useEffect, useRef, useState } from "react";
 // import { MusicContext } from "../../context/MusicContext";
 // import './MusicPlayer.scss';
@@ -34,9 +33,8 @@
 //         setCurrentTime(audioRef.current!.currentTime);
 //       };
 
-      
 //     }
-    
+
 //   }, [currentSong]);
 
 //   const togglePlay = () => {
@@ -70,7 +68,7 @@
 //       <div className='musicPlayer-info'>
 //         <div className='musicPlayer-info-left'>
 //           <img src={currentSong?.image || "/artist-1.jpg"} />
-//           <div className='musicPlayer-info-left-name'> 
+//           <div className='musicPlayer-info-left-name'>
 //             <h5>{currentSong?.title || "No song selected"}</h5>
 //             <p>{currentSong?.artist || ""}</p>
 //           </div>
@@ -90,12 +88,12 @@
 
 //         <div className="musicPlayer-progress">
 //           <span>{formatTime(currentTime)}</span>
-//           <input 
-//             type="range" 
-//             min={0} 
-//             max={duration} 
-//             value={currentTime} 
-//             onChange={handleSeek} 
+//           <input
+//             type="range"
+//             min={0}
+//             max={duration}
+//             value={currentTime}
+//             onChange={handleSeek}
 //           />
 //           <span>{formatTime(duration)}</span>
 //         </div>
@@ -112,17 +110,6 @@
 // };
 
 // export default MusicPlayer;
-
-
-
-
-
-
-
-
-
-
-
 
 // import React, { useContext, useEffect, useRef, useState } from "react";
 // import { MusicContext } from "../../context/MusicContext";
@@ -266,17 +253,19 @@
 
 // export default MusicPlayer;
 
-
-
-
-
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { MusicContext } from "../../context/MusicContext";
-import './MusicPlayer.scss';
-import { FaFastBackward, FaFastForward, FaHeart, FaPause, FaPlay } from 'react-icons/fa';
+import "./MusicPlayer.scss";
+import {
+  FaFastBackward,
+  FaFastForward,
+  FaHeart,
+  FaPause,
+  FaPlay,
+} from "react-icons/fa";
 import { IoResize } from "react-icons/io5";
-import { TfiMenuAlt } from 'react-icons/tfi';
-import { IoIosVolumeHigh } from 'react-icons/io';
+import { TfiMenuAlt } from "react-icons/tfi";
+import { IoIosVolumeHigh } from "react-icons/io";
 
 const MusicPlayer = () => {
   const { currentSong } = useContext(MusicContext);
@@ -311,7 +300,7 @@ const MusicPlayer = () => {
         setCurrentTime(audioRef.current!.currentTime);
       };
     }
-  }, [currentSong,volume]);
+  }, [currentSong]);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
@@ -350,25 +339,27 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className='musicPlayer'>
+    <div className="musicPlayer">
       <audio ref={audioRef}></audio>
 
-      <div className='musicPlayer-info'>
-        <div className='musicPlayer-info-left'>
+      <div className="musicPlayer-info">
+        <div className="musicPlayer-info-left">
           <img src={currentSong?.image || "/artist-1.jpg"} />
-          <div className='musicPlayer-info-left-name'>
+          <div className="musicPlayer-info-left-name">
             <h5>{currentSong?.title || "No song selected"}</h5>
             <p>{currentSong?.artist || ""}</p>
           </div>
         </div>
 
-        <div className='musicPlayer-info-right'>
-          <span><FaHeart /></span>
+        <div className="musicPlayer-info-right">
+          <span>
+            <FaHeart />
+          </span>
         </div>
       </div>
 
-      <div className='musicPlayer-control'>
-        <div className='musicPlayer-control-icons'>
+      <div className="musicPlayer-control">
+        <div className="musicPlayer-control-icons">
           <FaFastBackward />
           <button onClick={togglePlay}>
             {isPlaying ? <FaPause /> : <FaPlay />}
@@ -376,7 +367,7 @@ const MusicPlayer = () => {
           <FaFastForward />
         </div>
 
-        <div className='musicPlayer-progress'>
+        <div className="musicPlayer-progress">
           <span>{formatTime(currentTime)}</span>
 
           <input
@@ -391,14 +382,14 @@ const MusicPlayer = () => {
         </div>
       </div>
 
-      <div className='musicPlayer-extra'>
+      <div className="musicPlayer-extra">
         <TfiMenuAlt />
         <IoResize />
         <IoIosVolumeHigh />
 
         {/* VOLUME SLIDER */}
         <input
-          type='range'
+          type="range"
           min="0"
           max="1"
           step="0.01"

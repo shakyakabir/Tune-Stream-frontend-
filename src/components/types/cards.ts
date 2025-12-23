@@ -5,6 +5,7 @@ export interface FeaturedCard {
   image?: string;
   title?: string;
   subtitle?: string;
+  size?: number;
 
   // Common
   rating?: number;
@@ -23,7 +24,7 @@ export interface FeaturedCard {
   priceRange?: string;
 
   // Product
-  price?: string;
+  price?: number | string;
   oldPrice?: string;
   colors?: string[];
   buttonText?: string;

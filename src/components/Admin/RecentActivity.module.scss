@@ -1,0 +1,42 @@
+.wrapper {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  color: #000;
+
+  &-row {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+  }
+
+  &-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+
+    &.green {
+      background: #10b981;
+    }
+    &.blue {
+      background: #3b82f6;
+    }
+    &.red {
+      background: #ef4444;
+    }
+    &.yellow {
+      background: #f59e0b;
+    }
+  }
+
+  &-btn {
+    width: 100%;
+    padding: 10px;
+    background: #3b82f6;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    margin-top: 12px;
+  }
+}

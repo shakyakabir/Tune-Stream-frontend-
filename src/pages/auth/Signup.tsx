@@ -7,22 +7,47 @@ import { AuthRegister } from "../../api/Service/authService";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [form, setForm] = useState({ username: "", email: "", password: "", name:"", contact:"",role:"user" });
+  const [form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+    name: "",
+    contact: "",
+    role: "user",
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const navigate=useNavigate();
-const handleOnClick=async(e: React.MouseEvent<HTMLButtonElement>)=>{
-  e.preventDefault();
-  // Handle login logic here
-  const response=await AuthRegister(form);
-console.log("Signup Response:", response);
-  if(response){
-    console.log("Registration successful", response);
-navigate("/");
-  }
-} 
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const handleOnClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    // Handle login logic here
+
+    if (loading) return; // prevent double click
+    setLoading(true);
+    try {
+      const response = await AuthRegister(form);
+      console.log("Signup Response:", response);
+
+      if (response) {
+        navigate("/");
+        setForm({
+          username: "",
+          role: "user",
+          email: "",
+          password: "",
+          name: "",
+          contact: "",
+        });
+      }
+    } catch (error) {
+      console.error("Signup failed", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="login">
@@ -34,7 +59,7 @@ navigate("/");
           type="text"
           name="username"
           value={form.username}
-          onchange={handleChange}
+          onChange={handleChange}
           placeholder="Enter Your name"
         />
         <label className="login-label" htmlFor="">
@@ -44,19 +69,18 @@ navigate("/");
           type="email"
           name="email"
           value={form.email}
-          onchange={handleChange}
+          onChange={handleChange}
           placeholder="Enter Your email"
         />
 
-
- <label className="login-label" htmlFor="">
+        <label className="login-label" htmlFor="">
           Fullname
         </label>
         <Input
           type="text"
           name="name"
           value={form.name}
-          onchange={handleChange}
+          onChange={handleChange}
           placeholder="Enter Your name"
         />
         <label className="login-label" htmlFor="">
@@ -66,11 +90,9 @@ navigate("/");
           type="number"
           name="contact"
           value={form.contact}
-          onchange={handleChange}
+          onChange={handleChange}
           placeholder="Enter Your email"
         />
-
-
 
         <label className="login-label" htmlFor="">
           Password
@@ -79,13 +101,19 @@ navigate("/");
           type="password"
           name="password"
           value={form.password}
-          onchange={handleChange}
+          onChange={handleChange}
           placeholder="Enter Your password"
         />
         <div className="login-links">
           <a href="#">Forgot Password?</a>
         </div>
-        <Button text={"Login"} onClick={handleOnClick} varient={"gradient"} type={"submit"} />
+        <Button
+          text={loading ? "Signing up..." : "Signup"}
+          onClick={handleOnClick}
+          varient={"gradient"}
+          type={"button"}
+          disabled={loading}
+        />
       </form>
     </div>
   );
