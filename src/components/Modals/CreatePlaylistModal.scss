@@ -1,0 +1,27 @@
+.CreatePlaylist {
+  border: 1px solid #858585;
+  background-color: #181b25;
+  border-radius: 16px;
+  padding: 25px;
+
+  width: 25%;
+  min-width: 10%;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  &-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+  }
+}

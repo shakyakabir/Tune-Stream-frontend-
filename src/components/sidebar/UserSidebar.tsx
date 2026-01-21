@@ -33,17 +33,21 @@ const sidebarbrowserdata = [
   },
   {
     name: "Artists",
-    icon: <FaMicrophone size={15}  />,
+    icon: <FaMicrophone size={15} />,
     path: "/artists",
   },
   {
     name: "Artist Hub",
-    icon: <MdOutlinePeopleOutline size={15}/>,
+    icon: <MdOutlinePeopleOutline size={15} />,
     path: "/artist-hub",
   },
 ];
 const UserSidebar = () => {
   const Navigate = useNavigate();
+
+  const handleNavigation = () => {
+    Navigate("premium");
+  };
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
@@ -63,7 +67,12 @@ const UserSidebar = () => {
             </div>
           ))}
         </ul>
-        <Button text={"Get Premium"} varient={"gradient"} type={"submit"} />
+        <Button
+          text={"Get Premium"}
+          varient={"gradient"}
+          onClick={handleNavigation}
+          type={"submit"}
+        />
         <Button
           text={"Sign In"}
           varient={"border"}

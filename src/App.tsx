@@ -15,7 +15,10 @@ import Earning from "./pages/artistPages/Earning";
 import AdminDashboard from "./pages/adminPage/Dashboard";
 import AdminLayout from "./Layout/AdminLayout";
 import { AdminAnalyticsPage } from "./pages/adminPage/AdminAnalyticsPage";
-import Library from "./pages/userPages/LIbraryPage";
+import Library from "./pages/userPages/LibraryPage";
+import LibraryDetail from "./Features/Library/LibraryDetail";
+import PlaylistItem from "./components/PlayList/PlayList";
+import Premium from "./pages/userPages/Premium";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
             <Route path="/merch" element={<MerchPage />} />
             <Route path="/artists" element={<ArtistPage />} />
             <Route path="/library" element={<Library />} />
+            <Route path="/libraryDetail" element={<LibraryDetail />} />
+            <Route path="/paylist" element={<PlaylistItem />} />
+            <Route path="/premium" element={<Premium />} />
           </Route>
 
           <Route path="/Login" element={<AuthPages />} />

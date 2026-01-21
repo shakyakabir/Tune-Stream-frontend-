@@ -23,9 +23,9 @@
   scrollbar-width: thin;
   scrollbar-color: #572a8a #222;
   &-musicPlayer {
-  position: fixed;
-  background-color: var.$primary-color;
-  height: 90px;
+    position: fixed;
+    background-color: var.$primary-color;
+    height: 90px;
 
     bottom: 0;
     width: 100%;
@@ -35,20 +35,20 @@
   &-left {
     height: 100vh;
     overflow: auto;
-    width: 18%;
+    width: 14%;
     position: relative;
-    &-line{
+    &-line {
       width: 2px;
-    background-color: #2c2f32;
-    height: -webkit-fill-available;
-    position: absolute;
-    right: 1px;
+      background-color: #2c2f32;
+      height: -webkit-fill-available;
+      position: absolute;
+      right: 1px;
     }
   }
   &-right {
     height: 100vh;
     overflow-y: auto;
-    width: 82%;
+    width: 86%;
     padding: 0 15px;
   }
 }

@@ -3,7 +3,7 @@ import "./Button.scss";
 
 type ButtonProps = {
   text?: string;
-  varient: string;
+  varient?: string;
   icon?: React.ReactNode;
   type: "submit" | "button";
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -26,7 +26,8 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
     >
       {icon && <span className="button-icon">{icon}</span>}
-      {text}
+
+      <span>{text}</span>
     </button>
   );
 };

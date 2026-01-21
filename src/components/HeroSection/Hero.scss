@@ -7,12 +7,12 @@
   padding: 30px;
   height: 200px;
   color: var.$white;
+
   &-info {
     h2 {
       font-size: 3rem;
       font-weight: 700;
       margin: 0;
-   
     }
     p {
       font-size: 1.25rem;
@@ -30,7 +30,61 @@
   &-image {
     border: 1px solid;
     border-radius: 50%;
-        height: 180px;
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
+    img {
+      height: 200px;
+      width: 200px;
+      object-position: left bottom;
+    }
+  }
+}
+
+.heroChange {
+  display: flex;
+  gap: 2rem;
+  background-image: var.$gardient-darkcolor;
+  border-radius: 16px;
+  padding: 30px;
+  height: 200px;
+  color: var.$white;
+  &-image1 {
+    border: 1px solid;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    overflow: hidden;
+    img {
+      height: 200px;
+      width: 200px;
+      object-position: left bottom;
+    }
+  }
+
+  &-info {
+    h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      margin-top: 0;
+    }
+    &-button-container {
+      display: flex;
+      gap: 10px;
+      justify-content: start;
+      width: 50%;
+    }
+  }
+  &-image {
+    border: 1px solid;
+    border-radius: 50%;
+    height: 180px;
     width: 180px;
     overflow: hidden;
     img {

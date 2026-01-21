@@ -1,10 +1,10 @@
 .quick-action-card {
-  background: #131720;
   border-radius: 12px;
   padding: 16px;
   display: flex;
-  align-items: center;
+  align-items: start;
   color: #fff;
+  width: 100%;
   gap: 12px;
 
   .icon {
@@ -20,13 +20,18 @@
   }
 
   p {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     opacity: 0.8;
+    margin: 0;
+    color: gray;
   }
 
-  a {
+  .link {
     color: #a855f7;
     text-decoration: none;
     font-size: 0.85rem;
+    margin-top: 10px;
+    span {
+    }
   }
 }
