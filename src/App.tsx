@@ -17,8 +17,9 @@ import AdminLayout from "./Layout/AdminLayout";
 import { AdminAnalyticsPage } from "./pages/adminPage/AdminAnalyticsPage";
 import Library from "./pages/userPages/LibraryPage";
 import LibraryDetail from "./Features/Library/LibraryDetail";
-import PlaylistItem from "./components/PlayList/PlayList";
+// import PlaylistItem from "./components/PlayList/PlayList";
 import Premium from "./pages/userPages/Premium";
+import RecommendedDetail from "./Features/RecommendationDetail/RecommendedDetail";
 
 function App() {
   return (
@@ -32,7 +33,10 @@ function App() {
             <Route path="/artists" element={<ArtistPage />} />
             <Route path="/library" element={<Library />} />
             <Route path="/libraryDetail" element={<LibraryDetail />} />
-            <Route path="/paylist" element={<PlaylistItem />} />
+            <Route
+              path="/RecommendedDetail/:id"
+              element={<RecommendedDetail />}
+            />
             <Route path="/premium" element={<Premium />} />
           </Route>
 

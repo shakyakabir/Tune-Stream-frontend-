@@ -5,7 +5,7 @@ import { PendingRequests } from "../../components/Admin/PendingRequests";
 import { TopArtists } from "../../components/Admin/TopArtists";
 import { RecentActivity } from "../../components/Admin/RecentActivity";
 
-import { StreamingChart } from "../../components/chart/LineChart";
+import LineChart from "../../components/chart/LineChart";
 import { GenrePieChart } from "../../components/chart/PieChart";
 import { StatsCard } from "../../components/statsCard/StatsCard";
 
@@ -40,7 +40,7 @@ export const AdminAnalyticsPage: React.FC = () => {
       </div>
 
       <div className={styles["page-graphRow"]}>
-        <StreamingChart />
+        <LineChart />
         <GenrePieChart />
       </div>
 

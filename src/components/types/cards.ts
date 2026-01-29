@@ -30,4 +30,5 @@ export interface FeaturedCard {
   buttonText?: string;
 
   onButtonClick?: () => void;
+  onImageClick?: () => void;
 }

@@ -76,17 +76,20 @@
     margin-top: 10px;
     margin-bottom: 100px;
     &-trending {
-      width: 70%;
+      width: 60%;
       height: fit-content;
       &-content {
-        padding: 10px;
         border-radius: 16px;
-        background-color: #161a22;
+        background-color: #111117;
         border: 1px solid rgb(53, 53, 53);
+        hr {
+          border: 1px solid #5f5f5f;
+          margin: 0;
+        }
       }
     }
     &-recent {
-      width: 30%;
+      width: 40%;
       &-content {
         padding: 10px;
         border-radius: 16px;

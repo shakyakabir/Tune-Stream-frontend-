@@ -1,7 +1,7 @@
+@use "../../style/variable" as var;
 .sidebar {
   padding: 20px;
   &-logo {
-
     display: flex;
     align-items: center;
     gap: 15px;
@@ -10,14 +10,12 @@
       height: 50px;
     }
     h3 {
-      
       color: white;
       font-size: 1rem;
       margin: 0;
     }
   }
   &-browse {
-   
     h3 {
       padding-left: 5px;
       font-size: 0.8rem;
@@ -26,33 +24,40 @@
       margin-bottom: 0;
     }
     &-ul {
-       padding: 0 15px;
+      // padding: 0 15px;
       list-style: none;
       margin: 0;
- &-list {
-   
       padding: 0;
-      li {
-        display: flex;
-        color: white;
-                gap: 10px;
-        align-items: center;
-        font-weight: 400;
-        
-        span{
-          font-size: 14px;
-          margin-top: 15px;
-          
+      &-list {
+        padding: 10;
+        &-active {
+          background-image: var.$gardient-color;
+          border-radius: 16px;
+          padding: 11px 0px 8px 9px;
+
+          span {
+            font-size: 14px;
+            margin-top: 1px !important;
+          }
+        }
+        li {
+          display: flex;
+          color: white;
+          gap: 10px;
+          align-items: center;
+          cursor: pointer;
+          font-weight: 400;
+
+          span {
+            font-size: 14px;
+            margin-top: 15px;
+          }
         }
       }
     }
-     
-    }
-    button{
+    button {
       margin-top: 15px;
     }
- 
-   
   }
   &-upcomming {
     h1 {
@@ -61,28 +66,26 @@
       color: #a9aeb3;
       font-weight: 500;
     }
-      .featuredCard__title{
-        margin: 0px;
-      }
-       .featuredCard__subtitle { 
+    .featuredCard__title {
+      margin: 0px;
+    }
+    .featuredCard__subtitle {
       font-size: 0.85rem;
       color: #ffffff;
       font-weight: 500;
       margin: 0;
     }
-    .featuredCard__eventInfo{
+    .featuredCard__eventInfo {
       margin: 0px;
     }
-    .featuredCard__eventFooter{
+    .featuredCard__eventFooter {
       margin: 0px;
     }
   }
   &-artist {
     h1 {
       font-size: 20px;
-
     }
- 
   }
   &-merch {
     h1 {

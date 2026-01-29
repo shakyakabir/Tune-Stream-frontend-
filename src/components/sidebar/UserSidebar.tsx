@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import { MdOutlinePeopleOutline } from "react-icons/md";
 import Button from "../ui/Button";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import FeaturedCard from "../cards/FeaturedCard";
 import "./UserSidebar.scss";
 const sidebarbrowserdata = [
@@ -45,6 +45,8 @@ const sidebarbrowserdata = [
 const UserSidebar = () => {
   const Navigate = useNavigate();
 
+  const location = useLocation();
+
   const handleNavigation = () => {
     Navigate("premium");
   };
@@ -60,7 +62,14 @@ const UserSidebar = () => {
         <ul className="sidebar-browse-ul">
           {sidebarbrowserdata.map((data, index) => (
             <div className="sidebar-browse-ul-list" key={index}>
-              <li onClick={() => Navigate(data.path)}>
+              <li
+                onClick={() => Navigate(data.path)}
+                className={
+                  location.pathname === data.path
+                    ? "sidebar-browse-ul-list-active"
+                    : ""
+                }
+              >
                 <span>{data.icon}</span>
                 <span> {data.name}</span>
               </li>

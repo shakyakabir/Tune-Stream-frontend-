@@ -11,8 +11,14 @@ import HeroComponent from "../../components/HeroSection/HeroComponent";
 import GenresCard from "../../components/Carousel/GenresCard";
 import { GenresData } from "../../components/mock/CategoryData";
 import { FiPlay } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
+  const handleNaviage = (id: string) => {
+    navigate(`/RecommendedDetail/${id}`);
+  };
   return (
     <div className="landing">
       {/* {hero section} */}
@@ -36,14 +42,17 @@ const LandingPage = () => {
 
         <div className="landing-playlist-recommended-card">
           {playlistData.map((data) => (
-            <FeaturedCard
-              type="playlist"
-              title={data.title}
-              audioUrl={data.audioUrl}
-              songsCount={data.songsCount}
-              duration={data.duration}
-              image={data.image}
-            />
+            <div>
+              <FeaturedCard
+                onImageClick={() => handleNaviage(data.id)}
+                type="playlist"
+                title={data.title}
+                audioUrl={data.audioUrl}
+                songsCount={data.songsCount}
+                duration={data.duration}
+                image={data.image}
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -73,13 +82,16 @@ const LandingPage = () => {
           <h3>Trending Playlist</h3>
           <div className="landing-player-layout-trending-content">
             {TrendingData.map((data) => (
-              <Trending
-                name={data.title}
-                author={data.artist}
-                view={data.plays}
-                minute={data.duration}
-                image={data.image}
-              />
+              <>
+                <Trending
+                  name={data.title}
+                  author={data.artist}
+                  view={data.plays}
+                  minute={data.duration}
+                  image={data.image}
+                />
+                <hr />
+              </>
             ))}
           </div>
         </div>

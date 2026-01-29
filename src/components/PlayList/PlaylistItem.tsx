@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Track {
-  id: number;
+  id: string;
   title: string;
   artist: string;
   album: string;

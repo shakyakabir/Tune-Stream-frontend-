@@ -1,5 +1,6 @@
 export const playlistData = [
   {
+    id: "1",
     type: "playlist",
     title: "Unholy",
     subtitle: "sam smith",
@@ -9,6 +10,7 @@ export const playlistData = [
     image: "/sam.jpg", // Replace with actual image URL
   },
   {
+    id: "2",
     type: "playlist",
     title: "Chaiyya Chaiyya",
     subtitle: "Sukhwinder Singh",
@@ -19,6 +21,7 @@ export const playlistData = [
       "https://c.ndtvimg.com/2019-07/m3t324h8_chaiyyan-chaiyyan-youtube_625x300_26_July_19.jpg", // Replace with actual image URL
   },
   {
+    id: "3",
     type: "playlist",
     title: "Oh Oh Jane Jana",
     audioUrl: "/Oh.mp3",
@@ -29,6 +32,7 @@ export const playlistData = [
       "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/04/02/Pictures/salman-isabelle-jaane-recreated-bollywood-jaana-debut_eb5ae688-362a-11e8-8aa5-05fdb8d0ae52.jpg", // Replace with actual image URL
   },
   {
+    id: "4",
     type: "playlist",
     title: "Rehman Dakait Entry",
     subtitle: "Flipperachi",
@@ -39,6 +43,7 @@ export const playlistData = [
       "https://media.licdn.com/dms/image/v2/D5622AQEEigtlZa9U1g/feedshare-shrink_800/B56ZsG1KIzIYAg-/0/1765346157267?e=2147483647&v=beta&t=rKMTtMPC85793H0n6WOxDGvFYEUbzx7vjQsNFaGmq6w", // Replace with actual image URL
   },
   {
+    id: "5",
     type: "playlist",
     title: "Electronic Vibes",
     subtitle: "sam smith",
@@ -48,6 +53,7 @@ export const playlistData = [
     image: "/artist-1.jpg", // Replace with actual image URL
   },
   {
+    id: "6",
     type: "playlist",
     title: "Indie Dreams",
     audioUrl: "/Unholy.mp3",

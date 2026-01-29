@@ -27,6 +27,7 @@ const FeaturedCard: React.FC<FeaturedCardType> = ({
   colors = [],
   buttonText,
   onButtonClick,
+  onImageClick,
   audioUrl,
 }) => {
   const { setCurrentSong } = useContext(MusicContext);
@@ -47,7 +48,12 @@ const FeaturedCard: React.FC<FeaturedCardType> = ({
       {/* Image */}
       <div className="featuredCard__imageContainer">
         {image && (
-          <img src={image} alt={title} className="featuredCard__image" />
+          <img
+            src={image}
+            alt={title}
+            className="featuredCard__image"
+            onClick={onImageClick}
+          />
         )}
 
         {type === "playlist" && (

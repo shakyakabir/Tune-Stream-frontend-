@@ -4,15 +4,31 @@ import "./AnalyticsPage.scss";
 import StatsCard from "../../components/cards/StatsCard";
 import ActivityItem from "../../components/ActivityItem/ActivityItem";
 import ProgressBar from "../../components/Progressbar/ProgressBar";
+import LineChart from "../../components/chart/LineChart";
 
 const AnalyticsPage: React.FC = () => {
-
   // 👉 Top Stats Data
   const statsData = [
-    { title: "Total Streams", value: "284,548", change: "+24.5% from last month" },
-    { title: "Active Listeners", value: "52,348", change: "+12.2% from last month" },
-    { title: "Engagement Rate", value: "68.5%", change: "+6.2% from last month" },
-    { title: "Avg Listen Time", value: "3m 42s", change: "+8% from last month" },
+    {
+      title: "Total Streams",
+      value: "284,548",
+      change: "+24.5% from last month",
+    },
+    {
+      title: "Active Listeners",
+      value: "52,348",
+      change: "+12.2% from last month",
+    },
+    {
+      title: "Engagement Rate",
+      value: "68.5%",
+      change: "+6.2% from last month",
+    },
+    {
+      title: "Avg Listen Time",
+      value: "3m 42s",
+      change: "+8% from last month",
+    },
   ];
 
   // 👉 Top Tracks Data
@@ -32,7 +48,6 @@ const AnalyticsPage: React.FC = () => {
 
   return (
     <div className="analytics">
-
       {/* TOP CARDS */}
       <div className="analytics-cards">
         {statsData.map((item, index) => (
@@ -45,8 +60,10 @@ const AnalyticsPage: React.FC = () => {
         ))}
       </div>
 
+      <div>
+        <LineChart />
+      </div>
       <div className="analytics-grid">
-
         {/* LEFT SIDE — TOP TRACKS */}
         <div className="analytics-box">
           <h3>Top Performing Tracks</h3>
@@ -69,7 +86,6 @@ const AnalyticsPage: React.FC = () => {
             />
           ))}
         </div>
-
       </div>
     </div>
   );
