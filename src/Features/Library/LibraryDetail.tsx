@@ -1,7 +1,25 @@
 import React from "react";
 import "./LibraryPlaylistDetail.scss";
+import { useParams } from "react-router-dom";
+import { playlistData } from "../../components/mock/PlaylistData";
+interface Playlist {
+  id: string;
+  name: string;
+  description: string;
+  songsCount?: number;
+  duration?: string;
+}
 
 const LibraryDetail: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+
+  const palylistdata = localStorage.getItem("libraryPlaylist");
+  const playlistArray = palylistdata ? JSON.parse(palylistdata) : [];
+
+  const data = playlistArray.find((p: any) => p.id === id);
+
+  console.log(data);
+
   return (
     <section className="libraryPlaylist">
       {/* Back */}
@@ -13,8 +31,8 @@ const LibraryDetail: React.FC = () => {
 
         <div className="libraryPlaylist-header-info">
           <span className="libraryPlaylist-header-type">Playlist</span>
-          <h1 className="libraryPlaylist-header-title">hello</h1>
-          <p className="libraryPlaylist-header-desc">dskj</p>
+          <h1 className="libraryPlaylist-header-title">{data.name}</h1>
+          <p className="libraryPlaylist-header-desc">{data.description}</p>
           <span className="libraryPlaylist-header-meta">0 songs • 0m</span>
 
           <div className="libraryPlaylist-header-actions">

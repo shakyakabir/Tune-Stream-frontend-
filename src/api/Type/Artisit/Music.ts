@@ -3,7 +3,7 @@ export type MusicData = {
   title: string;
   artist_name: string;
   album: string;
-  genre: string;
+  categoryId: any;
   file: string;
   image: string;
 };

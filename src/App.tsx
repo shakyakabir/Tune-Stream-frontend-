@@ -20,42 +20,47 @@ import LibraryDetail from "./Features/Library/LibraryDetail";
 // import PlaylistItem from "./components/PlayList/PlayList";
 import Premium from "./pages/userPages/Premium";
 import RecommendedDetail from "./Features/RecommendationDetail/RecommendedDetail";
+import { ToastContainer } from "react-toastify";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<UserLayout />}>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/events" element={<EventPage />} />
-            <Route path="/merch" element={<MerchPage />} />
-            <Route path="/artists" element={<ArtistPage />} />
-            <Route path="/library" element={<Library />} />
-            <Route path="/libraryDetail" element={<LibraryDetail />} />
-            <Route
-              path="/RecommendedDetail/:id"
-              element={<RecommendedDetail />}
-            />
-            <Route path="/premium" element={<Premium />} />
-          </Route>
-
           <Route path="/Login" element={<AuthPages />} />
+          <Route element={<ProtectedRoute />}>
+            <Route element={<UserLayout />}>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/events" element={<EventPage />} />
+              <Route path="/merch" element={<MerchPage />} />
+              <Route path="/artists" element={<ArtistPage />} />
+              <Route path="/library" element={<Library />} />
+              <Route path="/libraryDetail/:id" element={<LibraryDetail />} />
+              <Route
+                path="/RecommendedDetail/:id"
+                element={<RecommendedDetail />}
+              />
+              <Route path="/premium" element={<Premium />} />
+            </Route>
 
-          <Route element={<ArtistLayout />}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/music" element={<MusicManagement />} />
-            <Route path="/merchandise" element={<MerchandiseManagement />} />
-            <Route path="/earning" element={<Earning />} />
-            <Route path="/analytics" element={<AnalyticsPage />} />
-          </Route>
+            <Route element={<ArtistLayout />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/music" element={<MusicManagement />} />
+              <Route path="/merchandise" element={<MerchandiseManagement />} />
+              <Route path="/earning" element={<Earning />} />
+              <Route path="/analytics" element={<AnalyticsPage />} />
+            </Route>
 
-          <Route element={<AdminLayout />}>
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route path="/admin/Analytic" element={<AdminAnalyticsPage />} />
+            <Route element={<AdminLayout />}>
+              <Route path="/admin/dashboard" element={<AdminDashboard />} />
+              <Route path="/admin/Analytic" element={<AdminAnalyticsPage />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
+
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 }

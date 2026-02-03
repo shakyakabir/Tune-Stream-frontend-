@@ -1,6 +1,7 @@
 export type CardType = "playlist" | "event" | "product";
 
 export interface FeaturedCard {
+  id?: string | number;
   type?: CardType;
   image?: string;
   title?: string;

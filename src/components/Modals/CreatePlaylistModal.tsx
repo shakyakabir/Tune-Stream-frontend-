@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import Input from "../ui/Input";
 import "./CreatePlaylistModal.scss";
 import Button from "../ui/Button";
+import { v4 as uuidv4 } from "uuid";
 
 interface CreatePlaylistModalProps {
   onClose?: () => void;
   onCreate?: (playlist: {
+    id?: string;
     name: string;
     description: string;
   }) => void | undefined;
@@ -24,6 +26,7 @@ const CreatePlaylistModal: React.FC<CreatePlaylistModalProps> = ({
     if (!name.trim()) return;
 
     onCreate?.({
+      id: uuidv4(),
       name,
       description,
     });

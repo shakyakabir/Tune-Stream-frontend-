@@ -47,8 +47,15 @@ const UserSidebar = () => {
 
   const location = useLocation();
 
+  const token = localStorage.getItem("token");
+
   const handleNavigation = () => {
     Navigate("premium");
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    Navigate("/login");
   };
   return (
     <div className="sidebar">
@@ -82,14 +89,23 @@ const UserSidebar = () => {
           onClick={handleNavigation}
           type={"submit"}
         />
-        <Button
-          text={"Sign In"}
-          varient={"border"}
-          type={"submit"}
-          onClick={() => {
-            Navigate("/login");
-          }}
-        />
+        {token ? (
+          <Button
+            text={"Logout"}
+            varient={"border"}
+            type={"submit"}
+            onClick={handleLogout}
+          />
+        ) : (
+          <Button
+            text={"Sign In"}
+            varient={"border"}
+            type={"submit"}
+            onClick={() => {
+              Navigate("/login");
+            }}
+          />
+        )}
       </div>
       <div className="sidebar-upcomming">
         <h1>Upcomming Event </h1>

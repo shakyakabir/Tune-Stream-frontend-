@@ -8,10 +8,10 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [form, setForm] = useState({
-    username: "",
+    // username: "",
     email: "",
     password: "",
-    name: "",
+    username: "",
     contact: "",
     role: "user",
   });
@@ -34,11 +34,11 @@ const Signup = () => {
       if (response) {
         navigate("/");
         setForm({
-          username: "",
+          // username: "",
           role: "user",
           email: "",
           password: "",
-          name: "",
+          username: "",
           contact: "",
         });
       }
@@ -52,8 +52,18 @@ const Signup = () => {
   return (
     <div className="login">
       <form className="login-form">
-        <label className="login-label" htmlFor="">
+        {/* <label className="login-label" htmlFor="">
           Name
+        </label>
+        <Input
+          type="text"
+          name="username"
+          value={form.username}
+          onChange={handleChange}
+          placeholder="Enter Your name"
+        /> */}
+        <label className="login-label" htmlFor="">
+          Fullname
         </label>
         <Input
           type="text"
@@ -73,16 +83,6 @@ const Signup = () => {
           placeholder="Enter Your email"
         />
 
-        <label className="login-label" htmlFor="">
-          Fullname
-        </label>
-        <Input
-          type="text"
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-          placeholder="Enter Your name"
-        />
         <label className="login-label" htmlFor="">
           contact
         </label>

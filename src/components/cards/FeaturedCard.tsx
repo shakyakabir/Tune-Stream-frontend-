@@ -8,6 +8,7 @@ import { LuTicket } from "react-icons/lu";
 import { MusicContext } from "../../context/MusicContext";
 
 const FeaturedCard: React.FC<FeaturedCardType> = ({
+  id,
   type,
   image,
   size,
@@ -42,6 +43,7 @@ const FeaturedCard: React.FC<FeaturedCardType> = ({
   };
   return (
     <div className="featuredCard">
+      {!id ? id : ""}
       {/* Badge */}
       {badge && <span className="featuredCard__badge">{badge}</span>}
 

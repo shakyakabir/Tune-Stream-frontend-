@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React from "react";
 
 import "./Library.scss";
 import FeaturedCard from "../../components/cards/FeaturedCard";
@@ -7,6 +7,7 @@ import CreatePlaylistModal from "../../components/Modals/CreatePlaylistModal";
 import { useNavigate } from "react-router-dom";
 
 interface Playlist {
+  id: string;
   name: string;
   description: string;
 }
@@ -18,7 +19,10 @@ const Library: React.FC = () => {
   const navigate = useNavigate();
 
   const handleCreate = (playlist: Playlist) => {
-    setPlaylists([...playlists, playlist]);
+    const updatedPlaylist = [...playlists, playlist];
+    setPlaylists(updatedPlaylist);
+
+    localStorage.setItem("libraryPlaylist", JSON.stringify(updatedPlaylist));
   };
   const handle = () => {
     setIsOpen(!isOpen);
@@ -27,10 +31,10 @@ const Library: React.FC = () => {
     setIsOpen(true);
   };
 
-  const handleDetail = () => {
+  const handleDetail = (id: string) => {
     // Navigate to playlist detail page
     console.log("Navigate to playlist detail page");
-    navigate("/libraryDetail");
+    navigate(`/libraryDetail/${id}`);
   };
   return (
     <section className="library">
@@ -41,9 +45,15 @@ const Library: React.FC = () => {
 
       <div className="library__grid">
         {playlists.map((item, i) => (
-          <span key={i} onClick={handleDetail}>
+          <span
+            key={i}
+            onClick={() => {
+              handleDetail(item.id);
+            }}
+          >
             <FeaturedCard
               type="playlist"
+              id={item.id}
               title={item.name}
               subtitle={item.description}
               songsCount={24}
