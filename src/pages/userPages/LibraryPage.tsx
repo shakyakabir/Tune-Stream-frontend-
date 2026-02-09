@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Library.scss";
 import FeaturedCard from "../../components/cards/FeaturedCard";
 
 import CreatePlaylistModal from "../../components/Modals/CreatePlaylistModal";
 import { useNavigate } from "react-router-dom";
+import {
+  createLibrary,
+  GetLibrary,
+} from "../../api/Service/library/libraryService";
 
+interface authFake {
+  email: string;
+  username: string;
+  contact: string;
+  password: string;
+  role: "USER";
+}
 interface Playlist {
-  id: string;
   name: string;
   description: string;
+  auth?: authFake;
 }
 
 const Library: React.FC = () => {
@@ -18,12 +29,27 @@ const Library: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const handleCreate = (playlist: Playlist) => {
-    const updatedPlaylist = [...playlists, playlist];
-    setPlaylists(updatedPlaylist);
+  const handleCreate = async (playlist: Playlist) => {
+    const response = await createLibrary(playlist);
+    // const updatedPlaylist = [...playlists, playlist];
+    // setPlaylists(updatedPlaylist);
+    if (response) {
+      console.log(response);
+    }
 
-    localStorage.setItem("libraryPlaylist", JSON.stringify(updatedPlaylist));
+    // localStorage.setItem("libraryPlaylist", JSON.stringify(updatedPlaylist));
   };
+  const [lib, setLib] = useState<Playlist[]>([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const response = await GetLibrary();
+      setLib(response);
+    };
+    fetch();
+  }, []);
+
+  console.log(lib);
   const handle = () => {
     setIsOpen(!isOpen);
   };
@@ -44,7 +70,7 @@ const Library: React.FC = () => {
       </div>
 
       <div className="library__grid">
-        {playlists.map((item, i) => (
+        {lib.map((item, i) => (
           <span
             key={i}
             onClick={() => {

@@ -278,8 +278,12 @@ const MusicPlayer = () => {
 
   useEffect(() => {
     if (currentSong && audioRef.current) {
-      audioRef.current.src = currentSong.url;
-
+      // audioRef.current.src = currentSong.url;
+      audioRef.current.src = `http://localhost:8080/uploads/audio/${currentSong.audioPath}`;
+      console.log(
+        `http://localhost:8080/uploads/audio/${currentSong.audioPath}`,
+        "ssa",
+      );
       const playPromise = audioRef.current.play();
       if (playPromise !== undefined) {
         playPromise
@@ -344,10 +348,15 @@ const MusicPlayer = () => {
 
       <div className="musicPlayer-info">
         <div className="musicPlayer-info-left">
-          <img src={currentSong?.image || "/artist-1.jpg"} />
+          <img
+            src={
+              `http://localhost:8080/uploads/images/${currentSong?.imagePath}` ||
+              "/artist-1.jpg"
+            }
+          />
           <div className="musicPlayer-info-left-name">
-            <h5>{currentSong?.title || "No song selected"}</h5>
-            <p>{currentSong?.artist || ""}</p>
+            <h5>{currentSong?.artist?.stageName || "No song selected"}</h5>
+            <p>{currentSong?.artist?.title || ""}</p>
           </div>
         </div>
 

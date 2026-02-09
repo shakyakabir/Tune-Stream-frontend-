@@ -24,6 +24,7 @@ import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import ArtistRegister from "./pages/auth/ArtistRegister";
 import ArtistLogin from "./pages/auth/ArtistLogin";
+import ArtistDetail from "./Features/ArtistDetail/ArtistDetail";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
                 path="/RecommendedDetail/:id"
                 element={<RecommendedDetail />}
               />
+              <Route path="/artist/detail/:id" element={<ArtistDetail />} />
               <Route path="/premium" element={<Premium />} />
             </Route>
           </Route>
