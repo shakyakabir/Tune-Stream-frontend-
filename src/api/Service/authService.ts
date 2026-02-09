@@ -51,3 +51,22 @@ export const registerArtist = async (formData: FormData) => {
   }
   return response;
 };
+
+export const ArtistAuthLogin = async (
+  authRequest: AuthRequest,
+): Promise<AuthResponse> => {
+  const response = await axiosInstance.post<AuthResponse, AuthResponse>(
+    `api/artist/login`,
+    authRequest,
+  );
+
+  console.log("Login Response:", response);
+  if (response.token) {
+    localStorage.setItem("token", response.token);
+  }
+  if (response.role) {
+    localStorage.setItem("role", response.role);
+  }
+
+  return response;
+};

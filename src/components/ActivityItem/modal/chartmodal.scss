@@ -1,0 +1,108 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px); // Creates the frosted glass look
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.2s ease-out;
+
+  .modal-card {
+    background: #131720;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 28px;
+    padding: 32px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    .close-icon {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: #1e1b2e;
+      border: none;
+      color: #fff;
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #2a2540;
+      }
+    }
+
+    .modal-header {
+      margin-bottom: 24px;
+      h3 {
+        color: #fff;
+        margin: 0;
+        font-size: 1.5rem;
+        letter-spacing: -0.5px;
+      }
+      p {
+        color: #666;
+        margin: 4px 0 0;
+        font-size: 0.9rem;
+      }
+    }
+
+    .chart-body {
+      margin: 20px 0;
+      // Height is handled via inline style props in React
+    }
+
+    .modal-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+      .stat {
+        span {
+          display: block;
+          color: #666;
+          font-size: 0.8rem;
+          margin-bottom: 4px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+        strong {
+          color: #fff;
+          font-size: 1.25rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

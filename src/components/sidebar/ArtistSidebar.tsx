@@ -48,7 +48,13 @@ const sidebarbrowserdata = [
     path: "/profile",
   },
 ];
+
 const ArtistSidebar = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    navigate("/login");
+    localStorage.clear();
+  };
   const Navigate = useNavigate();
   return (
     <div className="artist-sidebar">
@@ -83,6 +89,9 @@ const ArtistSidebar = () => {
               <h3>kabir</h3>
               <p>@kabirsha</p>
             </div>
+          </div>
+          <div onClick={handleLogout}>
+            <p>Logout</p>
           </div>
         </div>
       </div>

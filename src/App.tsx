@@ -23,6 +23,7 @@ import RecommendedDetail from "./Features/RecommendationDetail/RecommendedDetail
 import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import ArtistRegister from "./pages/auth/ArtistRegister";
+import ArtistLogin from "./pages/auth/ArtistLogin";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           <Route path="/Login" element={<AuthPages />} />
           <Route path="/ArtistRegister" element={<ArtistRegister />} />
+          <Route path="/ArtistLogin" element={<ArtistLogin />} />
           <Route element={<ProtectedRoute allowedRoles="USER" />}>
             <Route element={<UserLayout />}>
               <Route path="/" element={<LandingPage />} />

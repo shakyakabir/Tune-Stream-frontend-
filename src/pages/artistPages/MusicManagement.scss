@@ -1,118 +1,3 @@
-// .music-management {
-//   min-height: 100vh;
-//   color: white;
-//   padding: 30px;
-
-//   h2 {
-//     font-size: 1.8rem;
-//   }
-
-//   .subtitle {
-//     opacity: 0.8;
-//     margin-bottom: 20px;
-//   }
-
-//   .upload-section {
-//     background: #111620;
-//     padding: 20px;
-//     border-radius: 12px;
-
-//     h3 {
-//       margin-bottom: 4px;
-//     }
-
-//     p {
-//       font-size: 0.9rem;
-//       opacity: 0.7;
-//       margin-bottom: 20px;
-//     }
-
-//     .upload-form {
-//       display: flex;
-//       flex-direction: column;
-//       gap: 16px;
-
-//       .form-row {
-//         display: flex;
-//         gap: 16px;
-
-//         @media (max-width: 768px) {
-//           flex-direction: column;
-//         }
-//       }
-
-//       .form-group {
-//         flex: 1;
-//         display: flex;
-//         flex-direction: column;
-//         gap: 6px;
-
-//         label {
-//           font-size: 0.9rem;
-//           opacity: 0.9;
-//         }
-//       }
-//     }
-
-//     button {
-//       align-self: flex-start;
-//       margin-top: 10px;
-//     }
-//   }
-
-//   .your-tracks {
-//     padding: 1rem;
-
-//     h3 {
-//       font-size: 1.6rem;
-//       margin-bottom: 1rem;
-//     }
-
-//     &-table {
-//       width: 100%;
-//       border-collapse: collapse;
-
-//       border-radius: 8px;
-//       overflow: hidden;
-//       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-//     }
-
-//     &-table th,
-//     &-table td {
-//       padding: 0.75rem 1rem;
-//       text-align: left;
-//       border-bottom: 1px solid #1c1414;
-//     }
-
-//     &-table th {
-//       // background-color: #f0f0f0;
-//       font-weight: 600;
-//     }
-
-//     &-table tr:hover {
-//       background-color: #100808;
-//     }
-
-//     &-image {
-//       width: 60px;
-//       height: 60px;
-//       object-fit: cover;
-//       border-radius: 4px;
-//     }
-
-//     audio {
-//       width: 200px;
-//     }
-
-//     &-empty {
-//       padding: 2rem 0;
-//       text-align: center;
-//       color: #888;
-//       font-size: 1rem;
-//     }
-//   }
-// }
-
 .music-mgmt {
   // background-color: #0d1117;
   min-height: 100vh;
@@ -167,10 +52,31 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-      label {
-        font-size: 13px;
+      input,
+      select,
+      textarea {
+        background: #0d1117;
+        border: 1px solid #30363d;
+        border-radius: 10px;
+        padding: 12px 14px;
         color: #f0f6fc;
-        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.2s ease;
+        outline: none;
+
+        &::placeholder {
+          color: #6e7681;
+        }
+
+        &:hover {
+          border-color: #8b949e;
+        }
+
+        &:focus {
+          border-color: #f032b3;
+          box-shadow: 0 0 0 3px rgba(240, 50, 179, 0.15);
+          background: #0d1117;
+        }
       }
     }
   }
@@ -185,7 +91,23 @@
     justify-content: center;
     background: #0d1117;
     transition: all 0.2s;
+    &__content {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      pointer-events: none;
 
+      strong {
+        color: #e6edf3;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      small {
+        font-size: 12px;
+        color: #8b949e;
+      }
+    }
     &:hover {
       border-color: #f032b3;
       background: #121820;
@@ -204,7 +126,6 @@
       font-size: 13px;
     }
   }
-
   .track-table {
     width: 100%;
     border-collapse: collapse;
@@ -224,7 +145,7 @@
     }
 
     td {
-      padding: 18px 16px;
+      padding: 12px 16px;
       border-bottom: 1px solid #21262d;
       font-size: 14px;
       vertical-align: middle;
@@ -238,110 +159,53 @@
       background: rgba(255, 255, 255, 0.03);
     }
 
-    .track-info {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-
-      &__icon {
-        width: 72px;
-        height: 48px;
-        border-radius: 8px;
-        overflow: hidden;
-        background: #0d1117;
-        border: 1px solid #30363d;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-
-      .action-btn {
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        margin-left: 10px;
-        color: #8b949e;
-
-        &.edit:hover {
-          color: #58a6ff;
-        }
-
-        &.delete:hover {
-          color: #f85149;
-        }
-      }
-      &__text {
-        display: flex;
-        flex-direction: column;
-
-        .title {
-          font-weight: 600;
-          color: #ffffff;
-          line-height: 1.3;
-        }
-
-        &__artist {
-          font-size: 12px;
-          color: #8b949e;
-        }
-      }
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #30363d;
     }
 
-    .genre-pill {
-      display: inline-block;
-      background: linear-gradient(
-        135deg,
-        rgba(88, 166, 255, 0.2),
-        rgba(163, 113, 247, 0.2)
-      );
-      color: #c9d1d9;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .audio-player {
-      width: 200px;
-      height: 36px;
-      border-radius: 10px;
+    audio {
+      width: 180px;
+      height: 35px;
+      border-radius: 8px;
       background: #0d1117;
       border: 1px solid #30363d;
       padding: 4px;
 
-      /* Chrome / Edge */
       &::-webkit-media-controls-panel {
         background: #0d1117;
       }
-
       &::-webkit-media-controls-play-button,
       &::-webkit-media-controls-pause-button {
         filter: invert(1);
       }
-
       &::-webkit-media-controls-current-time-display,
       &::-webkit-media-controls-time-remaining-display {
         color: #8b949e;
         font-size: 11px;
       }
-
       &::-webkit-media-controls-timeline {
         filter: invert(0.9);
       }
-
       &::-webkit-media-controls-volume-slider {
         filter: invert(0.9);
       }
     }
 
-    .muted-text {
-      font-size: 12px;
+    button {
+      margin-right: 5px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
       color: #8b949e;
+
+      &:hover {
+        color: #f032b3;
+      }
     }
   }
 }

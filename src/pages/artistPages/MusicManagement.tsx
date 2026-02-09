@@ -183,6 +183,8 @@ const MusicManagement: React.FC = () => {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
+                type={"text"}
+                placeholder={"Track Title"}
               />
             </div>
             <div className="upload-form__group">
@@ -191,6 +193,8 @@ const MusicManagement: React.FC = () => {
                 name="artistName"
                 value={formData.artistName}
                 onChange={handleChange}
+                type={"text"}
+                placeholder={"Artist Name"}
               />
             </div>
           </div>
@@ -218,6 +222,8 @@ const MusicManagement: React.FC = () => {
                 name="featuredArtists"
                 value={formData.featuredArtists}
                 onChange={handleChange}
+                type={"text"}
+                placeholder={"Featured Artist"}
               />
             </div>
           </div>
@@ -260,35 +266,48 @@ const MusicManagement: React.FC = () => {
                 Explicit Lyrics
               </label>
             </div>
-            <div className="upload-form__group">
+            {/* <div className="upload-form__group">
               <label>Lyrics</label>
               <textarea
                 name="lyrics"
                 value={formData.lyrics}
                 onChange={handleChange}
               />
-            </div>
+            </div> */}
           </div>
 
           {/* ROW 5 */}
           <div className="upload-form__row">
             <div className="upload-form__group">
               <label>Audio File *</label>
-              <input
-                type="file"
-                name="file"
-                accept="audio/*"
-                onChange={handleChange}
-              />
+              <div className="file-drop-zone cover-drop">
+                <span className="file-drop-zone__content">
+                  <strong>Upload audio</strong>
+                  <small>MP3, WAV, up to 10MB</small>
+                </span>
+                <input
+                  type="file"
+                  name="file"
+                  accept="audio/*"
+                  onChange={handleChange}
+                />
+              </div>
             </div>
             <div className="upload-form__group">
               <label>Cover Image</label>
-              <input
-                type="file"
-                name="image"
-                accept="image/*"
-                onChange={handleChange}
-              />
+              <div className="file-drop-zone cover-drop">
+                <span className="file-drop-zone__content">
+                  <strong>Upload cover image</strong>
+                  <small>JPG, PNG (optional)</small>
+                </span>
+
+                <input
+                  type="file"
+                  name="image"
+                  accept="image/*"
+                  onChange={handleChange}
+                />
+              </div>
             </div>
           </div>
 
@@ -314,6 +333,8 @@ const MusicManagement: React.FC = () => {
             <thead>
               <tr>
                 <th>Track</th>
+                <th>Image</th>
+                <th>Audio</th>
                 <th>Artist</th>
                 <th>Album</th>
                 <th>Genre</th>
@@ -324,9 +345,24 @@ const MusicManagement: React.FC = () => {
               {tracks.map((track) => (
                 <tr key={track.id}>
                   <td>{track.title}</td>
+                  <td>
+                    <img
+                      src={`http://localhost:8080/uploads/images/${track.imagePath}`}
+                      alt="Artist Profile"
+                      alt=""
+                      srcset=""
+                    />
+                  </td>
+                  <td>
+                    <audio
+                      controls
+                      src={`http://localhost:8080/uploads/audio/${track.audioPath}`}
+                    />
+                  </td>
+
                   <td>{track.artistName}</td>
                   <td>{track.album || "Single"}</td>
-                  <td>{track.categoryId}</td>
+                  <td>{track.category.name}</td>
                   <td>
                     <button onClick={() => handleEdit(track)}>✏️</button>
                     <button onClick={() => handleDelete(track.id)}>🗑️</button>
