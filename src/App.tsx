@@ -23,6 +23,7 @@ import RecommendedDetail from "./Features/RecommendationDetail/RecommendedDetail
 import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import ArtistRegister from "./pages/auth/ArtistRegister";
+import Profile from "./pages/artistPages/Profile";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             </Route>
           </Route>
 
+          <Route path="/profile/:id" element={<Profile />} />
           <Route element={<ProtectedRoute allowedRoles="ARTIST" />}>
             <Route element={<ArtistLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
