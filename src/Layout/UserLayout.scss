@@ -8,7 +8,7 @@
     width: 2px;
   }
   &::-webkit-scrollbar-track {
-    background: #572a8a;
+    background: #572a8a9a;
   }
   &::-webkit-scrollbar-thumb {
     background: #572a8a; /* uses your variable */
@@ -23,24 +23,24 @@
   scrollbar-width: thin;
   scrollbar-color: #572a8a #222;
   &-musicPlayer {
-  position: fixed;
-  background-color: var.$primary-color;
-  height: 90px;
+    position: fixed;
+    background-color: var.$primary-color;
+    height: 90px;
 
     bottom: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 10;
   }
 
   &-left {
     height: 100vh;
     overflow: auto;
-    width: 18%;
+    width: 15%;
   }
   &-right {
     height: 100vh;
     overflow-y: auto;
-    width: 82%;
+    width: 85%;
     padding: 0 15px;
   }
 }

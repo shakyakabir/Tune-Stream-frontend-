@@ -22,6 +22,7 @@ import Premium from "./pages/userPages/Premium";
 import RecommendedDetail from "./Features/RecommendationDetail/RecommendedDetail";
 import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import ArtistRegister from "./pages/auth/ArtistRegister";
 
 function App() {
   return (
@@ -29,7 +30,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/Login" element={<AuthPages />} />
-          <Route element={<ProtectedRoute />}>
+          <Route path="/ArtistRegister" element={<ArtistRegister />} />
+          <Route element={<ProtectedRoute allowedRoles="USER" />}>
             <Route element={<UserLayout />}>
               <Route path="/" element={<LandingPage />} />
               <Route path="/events" element={<EventPage />} />
@@ -43,7 +45,9 @@ function App() {
               />
               <Route path="/premium" element={<Premium />} />
             </Route>
+          </Route>
 
+          <Route element={<ProtectedRoute allowedRoles="ARTIST" />}>
             <Route element={<ArtistLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/music" element={<MusicManagement />} />
@@ -51,7 +55,8 @@ function App() {
               <Route path="/earning" element={<Earning />} />
               <Route path="/analytics" element={<AnalyticsPage />} />
             </Route>
-
+          </Route>
+          <Route element={<ProtectedRoute allowedRoles="ADMIN" />}>
             <Route element={<AdminLayout />}>
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
               <Route path="/admin/Analytic" element={<AdminAnalyticsPage />} />

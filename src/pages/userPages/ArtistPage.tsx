@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ArtistPage.scss";
 import Input from "../../components/ui/Input";
+import { GetAllArtist } from "../../api/Service/Artist/GetArtist";
 
 interface TrendingItem {
   title: string;
@@ -9,8 +10,8 @@ interface TrendingItem {
 }
 
 interface Artist {
-  name: string;
-  img: string;
+  username: string;
+  profileImage: string;
 }
 
 const trendingData: TrendingItem[] = [
@@ -19,34 +20,17 @@ const trendingData: TrendingItem[] = [
   { title: "Soul Drift", genre: "R&B", growth: "+87% this week" },
 ];
 
-const featuredArtists: Artist[] = [
-  {
-    name: "Luna Wave",
-    img: "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/04/02/Pictures/salman-isabelle-jaane-recreated-bollywood-jaana-debut_eb5ae688-362a-11e8-8aa5-05fdb8d0ae52.jpg",
-  },
-  {
-    name: "Stellar Beats",
-    img: "https://c.ndtvimg.com/2019-07/m3t324h8_chaiyyan-chaiyyan-youtube_625x300_26_July_19.jpg",
-  },
-  {
-    name: "Echo Valley",
-    img: "https://media.licdn.com/dms/image/v2/D5622AQEEigtlZa9U1g/feedshare-shrink_800/B56ZsG1KIzIYAg-/0/1765346157267?e=2147483647&v=beta&t=rKMTtMPC85793H0n6WOxDGvFYEUbzx7vjQsNFaGmq6w",
-  },
-  {
-    name: "Luna Wave",
-    img: "https://media.licdn.com/dms/image/v2/D5622AQEEigtlZa9U1g/feedshare-shrink_800/B56ZsG1KIzIYAg-/0/1765346157267?e=2147483647&v=beta&t=rKMTtMPC85793H0n6WOxDGvFYEUbzx7vjQsNFaGmq6w",
-  },
-  {
-    name: "Stellar Beats",
-    img: "https://media.licdn.com/dms/image/v2/D5622AQEEigtlZa9U1g/feedshare-shrink_800/B56ZsG1KIzIYAg-/0/1765346157267?e=2147483647&v=beta&t=rKMTtMPC85793H0n6WOxDGvFYEUbzx7vjQsNFaGmq6w",
-  },
-  {
-    name: "Echo Valley",
-    img: "https://media.licdn.com/dms/image/v2/D5622AQEEigtlZa9U1g/feedshare-shrink_800/B56ZsG1KIzIYAg-/0/1765346157267?e=2147483647&v=beta&t=rKMTtMPC85793H0n6WOxDGvFYEUbzx7vjQsNFaGmq6w",
-  },
-];
-
 const ArtistPage: React.FC = () => {
+  const [artistData, setArtistData] = useState<Artist[]>([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await GetAllArtist();
+      setArtistData(data);
+    };
+    fetch();
+  }, []);
+
   return (
     <div className="artist">
       <div className="artist-heading">
@@ -84,13 +68,13 @@ const ArtistPage: React.FC = () => {
       <section className="featured-artists">
         <h2>Featured Artists</h2>
         <div className="artist-cards">
-          {featuredArtists.map((artist, index) => (
+          {artistData.map((artist, index) => (
             <div className="artist-card" key={index}>
               <div className="artist-circle">
-                <img src={artist.img} />
+                <img src={artist.profileImage} />
               </div>
               <p>
-                {artist.name} <span className="verified">✔️</span>
+                {artist.username} <span className="verified">✔️</span>
               </p>
             </div>
           ))}

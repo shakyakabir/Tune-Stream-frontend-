@@ -8,14 +8,39 @@ import Trending from "../../components/cards/Trending";
 import { RecentData, TrendingData } from "../../components/mock/TrendingData";
 import RecentCard from "../../components/cards/RecentCard";
 import HeroComponent from "../../components/HeroSection/HeroComponent";
-import GenresCard from "../../components/Carousel/GenresCard";
+import GenresCard, { type Genre } from "../../components/Carousel/GenresCard";
 import { GenresData } from "../../components/mock/CategoryData";
 import { FiPlay } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { GetCategories } from "../../api/Service/Categories/Categories";
+import type { Artist } from "../../api/Type/Artisit/Music";
+import { GetAllArtist } from "../../api/Service/Artist/GetArtist";
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
+  const [categories, setCategories] = useState<Genre[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await GetCategories();
+      setCategories(res);
+    };
+    fetchData();
+  }, []);
+
+  const [artistData, setArtistData] = useState<Artist[]>([]);
+
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await GetAllArtist();
+      setArtistData(data);
+    };
+    fetch();
+  }, []);
+
+  console.log(categories, "categories");
   const handleNaviage = (id: string) => {
     navigate(`/RecommendedDetail/${id}`);
   };
@@ -30,26 +55,24 @@ const LandingPage = () => {
         buttonName2={"Browse Playlists"}
         image="/artist-1.jpg"
       />
-      <GenresCard data={GenresData} />
+      {/* <GenresCard data={categories} /> */}
 
-      {/* {Featured Playlist} */}
+      {/* {Trending Song} */}
 
-      <div className="landing-playlist">
-        <div className="landing-playlist-header">
-          <h3>Recommended Playlist</h3>
+      <div className="landing-trending">
+        <div className="landing-trending-header">
+          <h3>Trending Song</h3>
           <p>View all</p>{" "}
         </div>
 
-        <div className="landing-playlist-recommended-card">
+        <div className="landing-trending-card">
           {playlistData.map((data) => (
             <div>
               <FeaturedCard
                 onImageClick={() => handleNaviage(data.id)}
-                type="playlist"
+                // type="playlist"
                 title={data.title}
-                audioUrl={data.audioUrl}
-                songsCount={data.songsCount}
-                duration={data.duration}
+                subtitle="kabir"
                 image={data.image}
               />
             </div>
@@ -57,10 +80,30 @@ const LandingPage = () => {
         </div>
       </div>
 
+      {/* {Featured Playlist} */}
+
+      <div className="landing-artist">
+        <div className="landing-artist-header">
+          <h3>Popular Artist</h3>
+          <p>View all</p>{" "}
+        </div>
+
+        <div className="landing-artist-container">
+          {artistData.map((artist, index) => (
+            <div className="landing-artist-container-card" key={index}>
+              <div className="landing-artist-container-card-circle">
+                <img src={artist.profileImage} />
+              </div>
+              <p>{artist.username}</p>
+              <span className="verified">Artist</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="landing-playlist">
         <div className="landing-playlist-header">
-          <h3>Featured Playlist</h3>
-          <p>View all</p>{" "}
+          <h3>Song Playlist</h3>
         </div>
 
         <div className="landing-playlist-card">
@@ -78,19 +121,18 @@ const LandingPage = () => {
 
       <div className="landing-player-layout">
         {/* {Trending Now} */}
-        <div className="landing-player-layout-trending">
-          <h3>Trending Playlist</h3>
-          <div className="landing-player-layout-trending-content">
+        <div className="landing-player-layout-recommended">
+          <h3>Recommended Playlist</h3>
+          <div className="landing-player-layout-recommended-content">
             {TrendingData.map((data) => (
               <>
-                <Trending
-                  name={data.title}
-                  author={data.artist}
-                  view={data.plays}
-                  minute={data.duration}
+                <FeaturedCard
+                  type="playlist"
+                  title={data.title}
+                  // songsCount={data.songsCount}
+                  duration={data.duration}
                   image={data.image}
                 />
-                <hr />
               </>
             ))}
           </div>

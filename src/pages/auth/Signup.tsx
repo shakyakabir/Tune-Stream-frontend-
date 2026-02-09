@@ -13,7 +13,7 @@ const Signup = () => {
     password: "",
     username: "",
     contact: "",
-    role: "user",
+    role: "USER",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,7 @@ const Signup = () => {
         navigate("/");
         setForm({
           // username: "",
-          role: "user",
+          role: "USER",
           email: "",
           password: "",
           username: "",

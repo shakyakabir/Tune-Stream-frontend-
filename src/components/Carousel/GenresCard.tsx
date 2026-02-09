@@ -4,8 +4,8 @@ import "./GenresCard.scss";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 export interface Genre {
-  title: string;
-  view: string;
+  name: string;
+  // view: string;
 }
 
 interface GenresCardProps {
@@ -14,6 +14,7 @@ interface GenresCardProps {
 }
 
 const GenresCard: React.FC<GenresCardProps> = ({ data, visibleCount = 6 }) => {
+  console.log(...data);
   const colors = ["#90284a", "#7e3016", "#4a3992", "#145e89", "#8f6605"];
 
   const [current, setCurrent] = useState(0);
@@ -44,9 +45,9 @@ const GenresCard: React.FC<GenresCardProps> = ({ data, visibleCount = 6 }) => {
               backgroundColor: colors[index % colors.length],
             }}
           >
-            <p className="carousel-card-title">{item.title}</p>
-            <h2 className="carousel-card-h2title">{item.title}</h2>
-            <p className="carousel-card-view">{item.view} track</p>
+            <p className="carousel-card-title">{item.name}</p>
+            <h2 className="carousel-card-h2title">{item.name}</h2>
+            {/* <p className="carousel-card-view">{item.view} track</p> */}
           </div>
         ))}
       </div>

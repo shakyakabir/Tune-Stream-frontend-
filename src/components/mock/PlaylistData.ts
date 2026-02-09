@@ -75,6 +75,46 @@ export const playlistDatas = [
   },
   {
     type: "playlist",
+    title: "Today's Top Hits",
+
+    songsCount: 50,
+    duration: "2h Tim",
+    image: "/artist-1.jpg", // Replace with actual image URL
+  },
+  {
+    type: "playlist",
+    title: "Today's Top Hits",
+
+    songsCount: 50,
+    duration: "2h Tim",
+    image: "/artist-1.jpg", // Replace with actual image URL
+  },
+  {
+    type: "playlist",
+    title: "Today's Top Hits",
+
+    songsCount: 50,
+    duration: "2h Tim",
+    image: "/artist-1.jpg", // Replace with actual image URL
+  },
+  {
+    type: "playlist",
+    title: "Today's Top Hits",
+
+    songsCount: 50,
+    duration: "2h Tim",
+    image: "/artist-1.jpg", // Replace with actual image URL
+  },
+  {
+    type: "playlist",
+    title: "Today's Top Hits",
+
+    songsCount: 50,
+    duration: "2h Tim",
+    image: "/artist-1.jpg", // Replace with actual image URL
+  },
+  {
+    type: "playlist",
     title: "Electronic Vibes",
 
     songsCount: 32,

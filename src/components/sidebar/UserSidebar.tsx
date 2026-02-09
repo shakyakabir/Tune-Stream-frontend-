@@ -39,7 +39,7 @@ const sidebarbrowserdata = [
   {
     name: "Artist Hub",
     icon: <MdOutlinePeopleOutline size={15} />,
-    path: "/artist-hub",
+    path: "/ArtistRegister",
   },
 ];
 const UserSidebar = () => {

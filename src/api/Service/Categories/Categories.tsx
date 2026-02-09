@@ -18,14 +18,15 @@
 
 import axiosInstance from "../../ApiInstacne/axiosInstance";
 import type { MusicData } from "../../Type/Artisit/Music";
+import type { categories } from "./Type";
 
 export type MusicFormData = FormData; // FormData is fine for file uploads
 
-export const UploadMusic = async (
-  data: MusicFormData,
+export const Category = async (
+  data: categories,
 ): Promise<{ message: string }> => {
   const response = await axiosInstance.post<{ message: string }>(
-    `api/music/upload`,
+    `api/categories`,
     data,
     {
       headers: {
@@ -36,25 +37,8 @@ export const UploadMusic = async (
   return response.data;
 };
 
-export type MusicResponse = {
-  success: boolean;
-  message: string;
-  data: MusicData[];
-};
-
-export const AllMusic = async (): Promise<MusicResponse> => {
-  const response = await axiosInstance.get<MusicResponse>("api/music/all");
-
-  return response.data;
-};
-export const ArtistSong = async (): Promise<MusicResponse> => {
-  const response = await axiosInstance.get<MusicResponse>("api/music/my-songs");
-
-  return response.data;
-};
-
-export const AllArtist = async (): Promise<MusicResponse> => {
-  const response = await axiosInstance.get<MusicResponse>("api/artists");
+export const GetCategories = async (): Promise<categories> => {
+  const response = await axiosInstance.get<categories>("api/categories/all");
 
   return response.data;
 };

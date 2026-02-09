@@ -17,36 +17,7 @@ export const TrendingData = [
     duration: "4:15",
     image: "/playlist-image.jpg",
   },
-  {
-    id: 3,
-    title: "Digital Love",
-    artist: "Synth Master",
-    plays: "1.6M",
-    icon: "🍹",
-    duration: "3:28",
-    image: "/playlist-image.jpg",
-  },
-  {
-    id: 4,
-    title: "Future Bass",
-    artist: "Beat Drift",
-    plays: "1.3M",
-    icon: "🍹",
-    duration: "4:02",
-    image: "/playlist-image.jpg",
-  },
-  {
-    id: 5,
-    title: "Unknown Track",
-    artist: "Unknown Artist",
-    plays: "1.1M",
-    icon: "🍹",
-    duration: "3:55",
-    image: "/playlist-image.jpg",
-  },
 ];
-
-
 
 export const RecentData = [
   {
@@ -76,5 +47,4 @@ export const RecentData = [
     duration: "3:28",
     image: "/playlist-image.jpg",
   },
- 
 ];
