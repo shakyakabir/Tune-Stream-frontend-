@@ -6,9 +6,12 @@ import AristInitailPage from "../../Features/Auth/AristInitailPage";
 import "./ArtistRegister.scss";
 import ArtistPreview from "../../Features/Auth/ArtistPreview";
 import { registerArtist } from "../../api/Service/authService";
+import { useNavigate } from "react-router-dom";
 
 const ArtistRegister = () => {
   const [step, setStep] = useState(1);
+
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -48,47 +51,53 @@ const ArtistRegister = () => {
 
       const response = await registerArtist(formDataPayload);
       console.log("Artist registered:", response);
+      if (response) {
+        navigate("/ArtistLogin");
+        localStorage.clear();
+      }
     } catch (error) {
       console.error("Artist registration failed", error);
     }
   };
 
   return (
-    <div className="artist-auth">
-      <div className="artist-auth-stepper">Step {step} of 4</div>
+    <div className="artist">
+      <div className="artist-auth">
+        <div className="artist-auth-stepper">Step {step} of 4</div>
 
-      {step === 1 && (
-        <AristInitailPage
-          data={formData}
-          setData={setFormData}
-          next={nextStep}
-        />
-      )}
-      {step === 2 && (
-        <AuthArtistSecond
-          data={formData}
-          setData={setFormData}
-          next={nextStep}
-          back={prevStep}
-        />
-      )}
+        {step === 1 && (
+          <AristInitailPage
+            data={formData}
+            setData={setFormData}
+            next={nextStep}
+          />
+        )}
+        {step === 2 && (
+          <AuthArtistSecond
+            data={formData}
+            setData={setFormData}
+            next={nextStep}
+            back={prevStep}
+          />
+        )}
 
-      {step === 3 && (
-        <AuthArtistImg
-          data={formData}
-          setData={setFormData}
-          next={nextStep}
-          back={prevStep}
-        />
-      )}
+        {step === 3 && (
+          <AuthArtistImg
+            data={formData}
+            setData={setFormData}
+            next={nextStep}
+            back={prevStep}
+          />
+        )}
 
-      {step === 4 && (
-        <ArtistPreview
-          data={formData}
-          back={prevStep}
-          handleSubmit={handleSubmit}
-        />
-      )}
+        {step === 4 && (
+          <ArtistPreview
+            data={formData}
+            back={prevStep}
+            handleSubmit={handleSubmit}
+          />
+        )}
+      </div>
     </div>
   );
 };

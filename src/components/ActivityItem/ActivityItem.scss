@@ -1,24 +1,65 @@
-.activity-item {
-  background: #131720;
-  border-radius: 10px;
-  padding: 12px;
+.earning-track {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  color: #fff;
-  margin-bottom: 10px;
+  padding: 16px 0;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); // Subtle separator
 
-  .activity-icon {
-    font-size: 1.3rem;
+  .rank-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .rank-number {
+      font-size: 0.9rem;
+      color: #6b7280;
+      width: 10px;
+    }
+
+    .track-icon {
+      background: #1e1b2e;
+      padding: 12px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .track-info {
+      .track-title {
+        margin: 0;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .track-streams {
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+    }
   }
 
-  p {
-    margin: 0;
-    font-weight: 500;
-  }
+  .earning-info {
+    text-align: right;
 
-  span {
-    font-size: 0.8rem;
-    opacity: 0.7;
+    .amount {
+      margin: 0;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .trend {
+      font-size: 0.75rem;
+      font-weight: 500;
+
+      &.up {
+        color: #10b981; // Green
+      }
+
+      &.down {
+        color: #ef4444; // Red
+      }
+    }
   }
 }

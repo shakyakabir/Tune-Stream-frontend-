@@ -1,0 +1,40 @@
+// LineChart.scss (or add to AnalyticsPage.scss)
+
+.chart-container {
+  background: #151925; // Matches your analytics-box
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+  // Header within the chart box
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .chart-period {
+      font-size: 12px;
+      color: #a1aab3;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+  }
+
+  // Wrapper for the actual Canvas
+  &__body {
+    position: relative;
+    height: 350px; // Fixed height for consistency
+    width: 100%;
+  }
+}

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./AnalyticsPage.scss";
 import StatsCard from "../../components/cards/StatsCard";
 import ActivityItem from "../../components/ActivityItem/ActivityItem";
-import ProgressBar from "../../components/Progressbar/ProgressBar";
+
 import LineChart from "../../components/chart/LineChart";
+import ChartModal from "../../components/ActivityItem/modal/ChartModal";
 
 const AnalyticsPage: React.FC = () => {
   // 👉 Top Stats Data
@@ -32,19 +33,50 @@ const AnalyticsPage: React.FC = () => {
   ];
 
   // 👉 Top Tracks Data
-  const topTracks = [
-    { text: "Midnight Dreams • 43.2k streams", time: "+18%" },
-    { text: "Electric Sunset • 38.9k streams", time: "+24%" },
-    { text: "Neon Waves • 32.1k streams", time: "+15%" },
-  ];
 
-  // 👉 Listener Demographics
-  const demographics = [
-    { label: "United States", value: 22.1, max: 25 },
-    { label: "United Kingdom", value: 8.4, max: 25 },
-    { label: "Canada", value: 6.3, max: 25 },
-    { label: "Australia", value: 4.2, max: 25 },
+  const topTracksData = [
+    {
+      rank: 1,
+      title: "Midnight Dreams",
+      streams: "43.2k",
+      amount: "12,450",
+      trend: 18,
+      history: [300, 500, 400, 700, 600, 800, 950],
+    },
+    {
+      rank: 2,
+      title: "Electric Sunset",
+      streams: "38.9k",
+      amount: "10,890",
+      trend: 24,
+      history: [300, 500, 400, 700, 600, 800, 950],
+    },
+    {
+      rank: 3,
+      title: "Neon Waves",
+      streams: "32.1k",
+      amount: "8,760",
+      trend: 15,
+      history: [300, 500, 400, 700, 600, 800, 950],
+    },
+    {
+      rank: 4,
+      title: "City Lights",
+      streams: "28.4k",
+      amount: "7,230",
+      trend: -5,
+      history: [300, 500, 400, 700, 600, 800, 950],
+    },
+    {
+      rank: 5,
+      title: "Summer Vibes",
+      streams: "24.7k",
+      amount: "6,180",
+      trend: 8,
+      history: [300, 500, 400, 700, 600, 800, 950],
+    },
   ];
+  const [selectedTrack, setSelectedTrack] = useState<any | null>(null);
 
   return (
     <div className="analytics">
@@ -63,18 +95,43 @@ const AnalyticsPage: React.FC = () => {
       <div>
         <LineChart />
       </div>
-      <div className="analytics-grid">
-        {/* LEFT SIDE — TOP TRACKS */}
-        <div className="analytics-box">
-          <h3>Top Performing Tracks</h3>
+      <div
+        style={{
+          backgroundColor: "#0d0f14",
+          padding: "20px",
+          borderRadius: "16px",
+          // maxWidth: "450px", 
+        }}
+      >
+        <h2 style={{ color: "#fff", marginBottom: "20px", fontSize: "1.2rem" }}>
+          Top Earning Tracks
+        </h2>
 
-          {topTracks.map((track, index) => (
-            <ActivityItem key={index} text={track.text} time={track.time} />
+        <div className="analytics-tracks-list">
+          {topTracksData.map((track) => (
+            <ActivityItem
+              key={track.rank}
+              rank={track.rank}
+              title={track.title}
+              streams={track.streams}
+              amount={track.amount}
+              trend={track.trend}
+              isActive={selectedTrack?.rank === track.rank} // Highlights if selected
+              onClick={() => setSelectedTrack(track)} // Opens the modal
+            />
           ))}
         </div>
 
-        {/* RIGHT SIDE — LISTENER DEMOGRAPHICS */}
-        <div className="analytics-box">
+        {/* The Popup Component */}
+        <ChartModal
+          isOpen={!!selectedTrack} // True if selectedTrack is not null
+          onClose={() => setSelectedTrack(null)} // Resets state to close modal
+          trackData={selectedTrack}
+        />
+      </div>
+
+      {/* RIGHT SIDE — LISTENER DEMOGRAPHICS */}
+      {/* <div className="analytics-box">
           <h3>Listener Demographics</h3>
 
           {demographics.map((item, index) => (
@@ -85,8 +142,7 @@ const AnalyticsPage: React.FC = () => {
               max={item.max}
             />
           ))}
-        </div>
-      </div>
+        </div> */}
     </div>
   );
 };

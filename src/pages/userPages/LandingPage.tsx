@@ -70,9 +70,10 @@ const LandingPage = () => {
             <div>
               <FeaturedCard
                 onImageClick={() => handleNaviage(data.id)}
-                // type="playlist"
+                type="playlist"
                 title={data.title}
                 subtitle="kabir"
+                audioUrl={data.audioUrl}
                 image={data.image}
               />
             </div>

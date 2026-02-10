@@ -27,7 +27,7 @@ const AuthArtistSecond = ({ data, setData, next, back }) => {
           placeholder={"About your"}
         />
 
-        <div className="actions">
+        <div className="artist-auth-actions">
           <Button text="Back" onClick={back} type={"button"} />
           <Button text="Next" onClick={next} type={"button"} />
         </div>

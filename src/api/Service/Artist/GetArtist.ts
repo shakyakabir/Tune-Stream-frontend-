@@ -13,3 +13,11 @@ export const GetAllArtist = async (): Promise<Artist[]> => {
 
   return response.data;
 };
+
+export const GetArtistId = async (id: number): Promise<Artist[]> => {
+  const response = await axiosInstance.get<Artist[]>(`api/artists/${id}`);
+
+  console.log(response, "rs");
+
+  return response.data;
+};

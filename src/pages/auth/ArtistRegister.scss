@@ -1,211 +1,248 @@
-// ===== VARIABLES =====
-$bg-main: #0b0f0c;
-$bg-card: #141816;
-$bg-input: #1c201e;
-$border-soft: #2a2f2c;
+// ArtistRegister.scss
 
-$green: #22c55e;
-$green-hover: #16a34a;
-
+// 1. Variables
+$primary: #ff4b5c;
+$primary-glow: rgba(255, 75, 92, 0.3);
+$bg-overlay: rgba(10, 15, 18, 0.75);
+$card-bg: rgba(22, 24, 28, 0.92);
+$input-bg: rgba(255, 255, 255, 0.05);
 $text-main: #ffffff;
-$text-muted: #9ca3af;
+$text-muted: #a1aab3;
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-// ===== PAGE =====
-.artist-auth {
+// 2. Global Container
+.artist {
+  background-image:
+    linear-gradient($bg-overlay, $bg-overlay), url("/login-backgroung.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   min-height: 100vh;
-  background: radial-gradient(circle at top right, #0f2f1f, $bg-main);
+  width: 97%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
 
-  // ===== STEPPER =====
-  &-stepper {
-    margin-bottom: 32px;
-    font-size: 14px;
-    color: $text-muted;
-  }
-
-  // ===== CARD =====
-  &-card {
-    width: 420px;
-    background: $bg-card;
-    border-radius: 14px;
-    padding: 28px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-
-    @media (max-width: 480px) {
-      width: 100%;
-      margin: 0 16px;
-    }
-  }
-
-  // ===== FORM =====
-  &-form {
+  // 3. Wrapper for Stepper & Card
+  &-auth {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-  }
-
-  // ===== LABEL =====
-  &-label {
-    font-size: 13px;
-    color: $text-muted;
-  }
-
-  &-profile {
-    display: flex;
-    gap: 20px;
     align-items: center;
+    width: 100%;
+    max-width: 480px;
 
-    &-preview {
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      border: 1px dashed #3a3f3c;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #6b7280;
-      background: #161918;
+    &-stepper {
+      font-size: 11px;
+      font-weight: 800;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      background: $primary;
+      padding: 8px 20px;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba($primary, 0.4);
+      animation: fadeInDown 0.5s ease;
     }
 
-    &-upload {
-      flex: 1;
-      height: 88px;
-      border-radius: 10px;
-      border: 1px dashed #3a3f3c;
-      background: #161918;
+    // 4. The Main Card
+    &-card {
+      background: (0 0 0 0 0.5);
+      padding: 40px;
+      border-radius: 28px;
+      width: 100%;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    // 5. Form & Elements
+    &-form {
       display: flex;
+      flex-direction: column;
+      gap: 22px;
+
+      // Labels
+      .artist-auth-label {
+        font-size: 12px;
+        font-weight: 700;
+        color: $primary;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: -16px;
+        margin-left: 4px;
+        display: block;
+      }
+
+      // Input Fields
+      input {
+        width: 90%;
+        background: $input-bg !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: $text-main !important;
+        height: 54px;
+        border-radius: 14px;
+        padding: 0 18px;
+        font-size: 15px;
+        transition: $transition;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.3);
+        }
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.08) !important;
+          border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        &:focus {
+          outline: none !important;
+          background: rgba(0, 0, 0, 0.3) !important;
+          border-color: $primary !important;
+          box-shadow: 0 0 0 4px $primary-glow;
+          transform: translateY(-1px);
+        }
+      }
+
+      // Textarea
+      textarea {
+        background: $input-bg;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 16px 18px;
+        color: white;
+        font-size: 15px;
+        min-height: 110px;
+        resize: none;
+        transition: $transition;
+
+        &:focus {
+          outline: none;
+          border-color: $primary;
+          background: rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+
+    // 6. Action Buttons
+    &-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+
+      button {
+        flex: 1;
+        height: 52px;
+        border-radius: 14px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        transition: $transition;
+        border: none;
+
+        // "Back" Button
+        &[type="button"] {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: white;
+          &:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.3);
+          }
+        }
+
+        // Primary "Next/Submit" Button
+        &:not([type="button"]),
+        &.primary-btn {
+          background: $primary;
+          color: white;
+          box-shadow: 0 8px 20px rgba($primary, 0.3);
+          &:hover {
+            background: lighten($primary, 5%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba($primary, 0.4);
+          }
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+
+    // 7. File Upload Elements
+    &-profile-upload,
+    &-cover {
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      border: 2px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 35px 20px;
       cursor: pointer;
-      text-align: center;
-      transition: border 0.2s ease;
+      background: rgba(255, 255, 255, 0.02);
+      transition: $transition;
 
       &:hover {
-        border-color: #22c55e;
-      }
-      input {
-        display: none;
+        background: rgba($primary, 0.05);
+        border-color: $primary;
+        transform: scale(1.01);
       }
 
       p {
         font-size: 14px;
-        color: #d1d5db;
+        font-weight: 600;
+        color: white;
+        margin: 10px 0 4px 0;
       }
 
       span {
-        font-size: 12px;
-        color: #6b7280;
-        display: block;
-        margin-top: 4px;
+        font-size: 11px;
+        color: $text-muted;
+      }
+
+      input {
+        display: none;
       }
     }
   }
+}
 
-  // ===== COVER IMAGE =====
-  &-cover {
-    margin-top: 24px;
-    height: 220px;
-    border-radius: 14px;
-    border: 1px dashed #3a3f3c;
-    background: #161918;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    transition: border 0.2s ease;
-
-    &:hover {
-      border-color: #22c55e;
-    }
-
-    input {
-      display: none;
-    }
-
-    p {
-      font-size: 14px;
-      color: #9ca3af;
-    }
+// 8. Animations
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  // ===== INPUTS =====
-  &-input,
-  &-textarea {
-    background: $bg-input;
-    border: 1px solid $border-soft;
-    border-radius: 8px;
-    padding: 12px 14px;
-    color: $text-main;
-    outline: none;
-    transition: all 0.2s ease;
-
-    &::placeholder {
-      color: #6b7280;
-    }
-
-    &:focus {
-      border-color: $green;
-      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  &-textarea {
-    resize: none;
-    min-height: 90px;
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
   }
-
-  // ===== FILE INPUT =====
-  &-file {
-    padding: 10px;
-    cursor: pointer;
-    color: $text-muted;
-    border-radius: 8px;
-    background: $bg-input;
-    border: 1px dashed $border-soft;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  // ===== BUTTON =====
-  &-btn {
-    background: $green;
-    border: none;
-    border-radius: 10px;
-    padding: 12px 18px;
-    font-weight: 600;
-    cursor: pointer;
-    color: #000;
-    transition:
-      background 0.2s ease,
-      transform 0.1s ease;
-
-    &:hover {
-      background: $green-hover;
-      transform: translateY(-1px);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
-
-    &--secondary {
-      background: transparent;
-      color: $text-muted;
-      border: 1px solid $border-soft;
-
-      &:hover {
-        background: #1f2422;
-        color: $text-main;
-      }
-    }
-  }
-
-  // ===== ACTIONS =====
-  &-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
+// 9. Mobile Responsiveness
+@media (max-width: 480px) {
+  .artist-auth-card {
+    padding: 30px 20px;
+    border-radius: 20px;
   }
 }

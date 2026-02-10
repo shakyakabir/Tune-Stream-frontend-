@@ -78,16 +78,18 @@
   }
 
   &-icon {
+    background: transparent;
+    border: 1px solid #444;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: transparent;
-    border: 1px solid #374151;
-    color: #9ca3af;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ccc;
     cursor: pointer;
-
     &:hover {
-      border-color: #a855f7;
+      border-color: #fff;
       color: #fff;
     }
   }

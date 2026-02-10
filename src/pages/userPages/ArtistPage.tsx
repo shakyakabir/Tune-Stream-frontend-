@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ArtistPage.scss";
 import Input from "../../components/ui/Input";
 import { GetAllArtist } from "../../api/Service/Artist/GetArtist";
+import { useNavigate } from "react-router-dom";
 
 interface TrendingItem {
   title: string;
@@ -10,6 +11,7 @@ interface TrendingItem {
 }
 
 interface Artist {
+  id: string;
   username: string;
   profileImage: string;
 }
@@ -31,9 +33,14 @@ const ArtistPage: React.FC = () => {
     fetch();
   }, []);
 
+  const navigate = useNavigate();
+  const handleArtistDetail = (id: string) => {
+    navigate(`/artist/detail/${id}`);
+  };
+
   return (
-    <div className="artist">
-      <div className="artist-heading">
+    <div className="artisst">
+      <div className="artisst-heading">
         {" "}
         <h1>Discover Artists</h1>
         <p>Explore your favorite artists and discover new talent</p>
@@ -49,12 +56,12 @@ const ArtistPage: React.FC = () => {
       </div>
 
       {/* Trending Now Section */}
-      <section className="artist-trending">
+      {/* <section className="artisst-trending">
         <h2>Trending Now</h2>
-        <div className="artist-trending-cards">
+        <div className="artisst-trending-cards">
           {trendingData.map((item, index) => (
-            <div className="artist-trending-cards-card" key={index}>
-              <div className="artist-trending-cards-card-info">
+            <div className="artisst-trending-cards-card" key={index}>
+              <div className="artisst-trending-cards-card-info">
                 <h3>{item.title}</h3>
                 <p>{item.genre}</p>
                 <span>{item.growth}</span>
@@ -62,24 +69,25 @@ const ArtistPage: React.FC = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Featured Artists Section */}
-      <section className="featured-artists">
-        <h2>Featured Artists</h2>
-        <div className="artist-cards">
-          {artistData.map((artist, index) => (
-            <div className="artist-card" key={index}>
-              <div className="artist-circle">
-                <img src={artist.profileImage} />
-              </div>
-              <p>
-                {artist.username} <span className="verified">✔️</span>
-              </p>
+
+      <div className="artisst-container">
+        {artistData.map((artist, index) => (
+          <div
+            className="artisst-container-card"
+            onClick={() => handleArtistDetail(artist.id)}
+            key={index}
+          >
+            <div className="artisst-container-card-circle">
+              <img src={artist.profileImage} />
             </div>
-          ))}
-        </div>
-      </section>
+            <p>{artist.username}</p>
+            <span className="verified">Artist</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

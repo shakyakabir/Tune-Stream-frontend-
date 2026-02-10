@@ -44,9 +44,9 @@ const AristInitailPage = ({ data, setData, next }) => {
           onChange={handleChange}
           placeholder="Enter Your password"
         />
-        <>
+        <div className="artist-auth-actions">
           <Button type={"button"} text="next" onClick={next} />
-        </>
+        </div>
       </form>
     </div>
   );
