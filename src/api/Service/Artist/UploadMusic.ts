@@ -79,3 +79,9 @@ export const UpdateMusic = async (
 
   return response.data;
 };
+
+export const getAllMusic = async () => {
+  const res = await axiosInstance.get("api/music/all");
+  console.log(res, "tesign");
+  return res.data;
+};
