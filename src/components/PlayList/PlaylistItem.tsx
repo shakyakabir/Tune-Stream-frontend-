@@ -28,6 +28,7 @@ export interface Song {
   imagePath: string;
   releaseDate: [number, number, number]; // [year, month, day]
   category: Category;
+  totalPlays: number;
   artist: Artist;
   visibility: "public" | "private";
   explicit: boolean;
@@ -60,11 +61,6 @@ const PlaylistItem: React.FC<Props> = ({ track, index }) => {
   console.log(duration);
   const { setCurrentSong } = useContext(MusicContext);
 
-  const music = `http://localhost:8080/uploads/audio/${track.audioPath}`;
-  const handlePlayClick = () => {
-    setCurrentSong(track); // sets the current song in the context
-  };
-
   return (
     // <tr className="playlist-item" onClick={handlePlayClick}>
     //   <td>{index}</td>
@@ -96,7 +92,7 @@ const PlaylistItem: React.FC<Props> = ({ track, index }) => {
         </div>
       </td>
       <td className="album-cell">{track.album}</td>
-      <td className="plays-cell">2,345,678</td>{" "}
+      <td className="plays-cell">{track.totalPlays}</td>{" "}
       {/* Replace with track.plays if available */}
       <td className="duration-cell">{duration}</td>
     </tr>

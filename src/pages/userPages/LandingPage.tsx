@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import { GetCategories } from "../../api/Service/Categories/Categories";
 import type { Artist } from "../../api/Type/Artisit/Music";
 import { GetAllArtist } from "../../api/Service/Artist/GetArtist";
+import { FaPlus } from "react-icons/fa";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -50,9 +51,12 @@ const LandingPage = () => {
       <HeroComponent
         heading={"Welcome to Tunespot"}
         subHeading={"Discover new music, book events, and shop exclusive merch"}
-        buttonName1={"Sign In to Listen"}
+        buttonName1={"Play"}
         icon1={<FiPlay />}
-        buttonName2={"Browse Playlists"}
+        varient1="darkgradient"
+        varient2="active"
+        icon2={<FaPlus />}
+        buttonName2={"Create Playlists"}
         image="/artist-1.jpg"
       />
       {/* <GenresCard data={categories} /> */}
@@ -125,32 +129,30 @@ const LandingPage = () => {
         <div className="landing-player-layout-recommended">
           <h3>Recommended Playlist</h3>
           <div className="landing-player-layout-recommended-content">
-            {TrendingData.map((data) => (
-              <>
-                <FeaturedCard
-                  type="playlist"
-                  title={data.title}
-                  // songsCount={data.songsCount}
-                  duration={data.duration}
-                  image={data.image}
-                />
-              </>
+            {TrendingData.slice(0, 1).map((data) => (
+              <FeaturedCard
+                type="playlist"
+                title={data.title}
+                // songsCount={data.songsCount}
+                duration={data.duration}
+                image={data.image}
+              />
             ))}
           </div>
         </div>
         {/* {Recently Played} */}
         <div className="landing-player-layout-recent">
           <h3>Recent Played</h3>
-          <div className="landing-player-layout-recent-content">
-            {RecentData.map((data) => (
+          {RecentData.map((data) => (
+            <div className="landing-player-layout-recent-content">
               <RecentCard
                 name={data.title}
                 artist={data.artist}
                 duration={data.duration}
                 image={data.image}
               />
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -188,7 +188,8 @@
   transition: all 0.3s ease;
 
   &:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    background-color: #13172081;
+    border-radius: 16px;
   }
 
   &__badge {
@@ -204,6 +205,19 @@
 
   &__imageContainer {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    // Show the button when the container is hovered
+    &:hover {
+      .featuredCard__playButton {
+        display: flex; // or block
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 
   &__image {
@@ -214,9 +228,10 @@
   }
 
   &__playButton {
+    display: none;
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    right: 25px;
     background-color: #9333ea;
     border: none;
     padding: 10px;
@@ -282,7 +297,7 @@
     gap: 4px;
     color: #facc15;
   }
-&__eventFooter {
+  &__eventFooter {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -291,9 +306,9 @@
       color: #a855f7;
       font-weight: 600;
     }
-    button{
+    button {
       margin: 0;
-      width: 115px!important;
+      width: 115px !important;
     }
   }
 

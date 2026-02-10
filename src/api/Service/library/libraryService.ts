@@ -28,3 +28,28 @@ export const GetLibraryId = async (id: string) => {
     throw error;
   }
 };
+
+export const PostMusicLibrary = async (id: number, data: any) => {
+  try {
+    const response = await axiosInstance.post(
+      `/api/playlists/${id}/music`,
+      data,
+    );
+    console.log(response, "sds");
+    return response;
+  } catch (error) {
+    console.error("Error fetching playlists:", error);
+    throw error;
+  }
+};
+
+export const GetMusicLibrary = async (id: number) => {
+  try {
+    const response = await axiosInstance.get(`/api/playlists/${id}/music`);
+    console.log(response, "sds");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching playlists:", error);
+    throw error;
+  }
+};

@@ -52,9 +52,9 @@ function App() {
             </Route>
           </Route>
 
-          <Route path="/profile/:id" element={<Profile />} />
           <Route element={<ProtectedRoute allowedRoles="ARTIST" />}>
             <Route element={<ArtistLayout />}>
+              <Route path="/profile/:id" element={<Profile />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/music" element={<MusicManagement />} />
               <Route path="/merchandise" element={<MerchandiseManagement />} />

@@ -20,11 +20,12 @@ const RecentCard: React.FC<RecentCardProps> = ({
         <div className="trending-left-info">
           <h2>{name}</h2>
           <p>{artist}</p>
-          <p>{duration}</p>
+          {/* <p>{duration}</p> */}
         </div>
       </div>
       <div className="trending-right">
-        <i>+</i>
+        {/* <i>+</i> */}
+        <p>{duration}</p>
       </div>
     </div>
   );
