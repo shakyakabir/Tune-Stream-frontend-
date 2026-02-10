@@ -16,6 +16,9 @@ export const AuthLogin = async (
   if (response.role) {
     localStorage.setItem("role", response.role);
   }
+  if (response.userId) {
+    localStorage.setItem("userId", response.userId.toString());
+  }
 
   return response;
 };

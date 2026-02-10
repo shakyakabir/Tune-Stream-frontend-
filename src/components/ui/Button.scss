@@ -1,9 +1,13 @@
 @use "../../style/variable" as var;
 .button-gradient {
   background-image: var.$gardient-color;
-  box-shadow: 2px 10px 10px 0px #50375a;
+  box-shadow: 2px 2px 15px 0px #9e0683;
   color: white;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
 }
 .button-darkgradient {
   background-image: var.$gardient-darkcolor;
@@ -14,12 +18,17 @@
   align-items: center;
   gap: 10px;
   color: white;
-  width: 100%;
+  max-width: 100%;
 }
 .button-active {
-  background-color: #0d1016;
+  background-color: #1f1f2880;
   color: white;
-  width: 100%;
+  border: 1px solid #2f2f3680;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 .button-not-active {
   border: none;

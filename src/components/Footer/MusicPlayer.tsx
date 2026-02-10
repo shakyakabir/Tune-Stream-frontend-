@@ -266,6 +266,7 @@ import {
 import { IoResize } from "react-icons/io5";
 import { TfiMenuAlt } from "react-icons/tfi";
 import { IoIosVolumeHigh } from "react-icons/io";
+import { countMusic } from "../../api/Service/Artist/CountMusic";
 
 const MusicPlayer = () => {
   const { currentSong } = useContext(MusicContext);
@@ -306,6 +307,10 @@ const MusicPlayer = () => {
     }
   }, [currentSong]);
 
+  const handeMusicCount = async () => {
+    await countMusic(currentSong?.id);
+  };
+
   const togglePlay = () => {
     if (!audioRef.current) return;
 
@@ -344,7 +349,7 @@ const MusicPlayer = () => {
 
   return (
     <div className="musicPlayer">
-      <audio ref={audioRef}></audio>
+      <audio ref={audioRef} onEnded={handeMusicCount}></audio>
 
       <div className="musicPlayer-info">
         <div className="musicPlayer-info-left">

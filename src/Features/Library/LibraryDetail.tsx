@@ -43,6 +43,7 @@ const LibraryDetail: React.FC = () => {
 
     fetch();
   }, [id]);
+  console.log(musicList, "msuic");
   const [libMusic, setLibMusic] = useState<any[]>([]);
   useEffect(() => {
     const fetch = async () => {

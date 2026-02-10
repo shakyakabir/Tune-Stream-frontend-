@@ -9,6 +9,7 @@ export type AuthRequest = {
 };
 
 export type AuthResponse = {
+  userId: number;
   token: string;
   role: "USER" | "ARTIST" | "ADMIN";
   message: string;
