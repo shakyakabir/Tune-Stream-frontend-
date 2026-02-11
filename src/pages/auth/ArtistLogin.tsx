@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
-import "./Login.scss";
+import "./ArtistLogin.scss";
 import { ArtistAuthLogin } from "../../api/Service/authService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -41,9 +41,10 @@ const ArtistLogin = () => {
     }
   };
   return (
-    <div className="login">
-      <form className="login-form">
-        <label className="login-label" htmlFor="">
+    <div className="artistlogin">
+      <form className="artistlogin-form">
+        <h2 className="artistlogin-title">Artist Login</h2>
+        <label className="artistlogin-label" htmlFor="">
           Email
         </label>
         <Input
@@ -53,7 +54,7 @@ const ArtistLogin = () => {
           onChange={handleChange}
           placeholder="Enter Your email"
         />
-        <label className="login-label" htmlFor="">
+        <label className="artistlogin-label" htmlFor="">
           Password
         </label>
         <Input
@@ -63,7 +64,7 @@ const ArtistLogin = () => {
           onChange={handleChange}
           placeholder="Enter Your password"
         />
-        <div className="login-links">
+        <div className="artistlogin-links">
           <a href="#">Forgot Password?</a>
         </div>
         <Button

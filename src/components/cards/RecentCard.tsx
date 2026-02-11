@@ -1,22 +1,25 @@
-import React from "react";
+import React, { type ReactNode } from "react";
 import "./trending.scss";
 
 interface RecentCardProps {
-  image: string;
+  image?: string;
   name: string;
-  artist: string;
-  duration: string;
+  artist?: string;
+  duration?: string;
+  icon?: ReactNode;
 }
 const RecentCard: React.FC<RecentCardProps> = ({
   image,
   name,
+  icon,
   artist,
   duration,
 }) => {
   return (
     <div className="trending">
       <div className="trending-left">
-        <img src={image} alt="" />
+        {image && <img src={image} alt="" />}
+        {icon && <div className="icon">{icon}</div>}
         <div className="trending-left-info">
           <h2>{name}</h2>
           <p>{artist}</p>

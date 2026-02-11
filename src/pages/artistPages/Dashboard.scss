@@ -2,14 +2,23 @@
   min-height: 100vh;
   padding: 24px;
   color: white;
+  .heroChange-info-button-container {
+    width: 50%;
+    button {
+      width: 100%;
 
-  .stats-section {
+      box-shadow: inset 2px 2px 12px 0 #000000;
+    }
+  }
+
+  &-stats-section {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
     margin-top: 28px;
     .stats-card {
       padding: 12px;
+      box-shadow: inset 2px 2px 12px 0 #000000;
       p {
         margin: 0;
       }
@@ -19,15 +28,115 @@
     }
   }
 
-  .section-title {
+  &-tion-title {
     margin: 24px 0 12px;
     font-size: 1.2rem;
   }
 
-  .quick-actions {
+  &-quick-actions {
     display: flex;
     gap: 16px;
     flex-wrap: nowrap;
+  }
+  &-playlist-layout {
+    display: flex;
+    margin-top: 20px;
+    gap: 25px;
+    &-track {
+      width: 65%;
+      &-content {
+        background-color: rgb(71 45 109 / 19%);
+        box-shadow: inset 3px 2px 12px 5px #000000;
+        border-radius: 8px;
+        padding: 5%;
+        h3 {
+          margin: 0 0 15px;
+        }
+        hr {
+          border: 1px solid rgba(113, 113, 113, 0.193);
+        }
+      }
+      &-albums {
+        &-header {
+        }
+        &-card {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 15px;
+          .featuredCard {
+            height: 255px;
+            background-color: #0f0f13;
+            box-shadow: inset 3px 2px 12px 5px #000000;
+            border: none;
+            border-radius: 8px;
+            // box-shadow: none;
+          }
+          .featuredCard__imageContainer img {
+            height: 165px;
+
+            width: 165px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px 0 #fce1d266;
+          }
+          h3 {
+            margin: 0;
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+    &-recent {
+      width: 35%;
+      &-content {
+        background-color: rgb(71 45 109 / 19%);
+        box-shadow: inset 2px 2px 12px 5px #000000;
+        border-radius: 8px;
+        padding: 5%;
+        h3 {
+          margin: 0 0 15px;
+        }
+        .trending-left {
+          margin-top: 15px;
+          .icon {
+            background-color: rgba(64, 24, 100, 0.27);
+            padding: 9px 5px 5px 5px;
+            box-shadow: inset 2px 2px 12px 0 #000000;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            color: rgb(71 45 109 / 19%);
+          }
+          svg {
+            color: rgb(71, 45, 109);
+          }
+        }
+        hr {
+          border: 1px solid rgba(113, 113, 113, 0.193);
+        }
+      }
+      &-about {
+        background-color: rgb(71 45 109 / 19%);
+        box-shadow: inset 2px 2px 12px 5px rgb(71 45 109 / 19%);
+        border-radius: 8px;
+        padding: 5%;
+        margin-top: 15px;
+        h5 {
+          margin: 0 0 15px;
+          color: white;
+          font-size: 24px;
+          font-weight: 700;
+        }
+        p {
+          color: rgb(103, 103, 103);
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 25px;
+        }
+      }
+    }
   }
 
   .recent-activity {
