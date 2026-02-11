@@ -18,17 +18,25 @@
 
   &__upload-card,
   &__list-card {
-    background: #161b22;
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 30px;
-    border: 1px solid #30363d;
+    // background: #161b22;
+    // border-radius: 12px;
+    // padding: 24px;
+    // margin-bottom: 30px;
+    // border: 1px solid #30363d;
+    background-color: rgb(71 45 109 / 19%);
+    box-shadow: inset 2px 2px 12px 5px #000000;
+    border-radius: 8px;
+    padding: 2%;
+    margin-bottom: 15px;
+    h3 {
+      margin: 0 0 15px;
+    }
   }
 
   &__upload-card {
     h3 {
       font-size: 18px;
-      margin-bottom: 4px;
+      margin-bottom: 15px;
     }
     .description {
       color: #8b949e;
@@ -55,8 +63,9 @@
       input,
       select,
       textarea {
-        background: #0d1117;
-        border: 1px solid #30363d;
+        background: rgba(40, 23, 64, 0.19);
+        border: 1px solid #85858535;
+
         border-radius: 10px;
         padding: 12px 14px;
         color: #f0f6fc;
@@ -129,7 +138,7 @@
   .track-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 10px;
 
     thead {
       background: rgba(255, 255, 255, 0.02);

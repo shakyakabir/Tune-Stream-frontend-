@@ -1,0 +1,66 @@
+.artistlogin {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("/login-backgroung.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(19, 4, 46, 0.8);
+    z-index: 0;
+  }
+
+  &-form {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 420px;
+    padding: 2.5rem;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  &-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  &-label {
+    color: #e5e7eb;
+    font-size: 0.9rem;
+  }
+
+  &-links {
+    text-align: right;
+
+    a {
+      font-size: 0.85rem;
+      color: #c084fc;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

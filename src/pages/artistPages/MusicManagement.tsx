@@ -168,7 +168,7 @@ const MusicManagement: React.FC = () => {
     <div className="music-mgmt">
       <header className="music-mgmt__header">
         <h2>Music Management</h2>
-        <p>Upload and manage your tracks</p>
+        <p style={{ marginTop: "0" }}>Upload and manage your tracks</p>
       </header>
 
       <section className="music-mgmt__upload-card">
@@ -329,48 +329,52 @@ const MusicManagement: React.FC = () => {
         {loadingTracks ? (
           <p>Loading...</p>
         ) : (
-          <table className="track-table">
-            <thead>
-              <tr>
-                <th>Track</th>
-                <th>Image</th>
-                <th>Audio</th>
-                <th>Artist</th>
-                <th>Album</th>
-                <th>Genre</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tracks.map((track) => (
-                <tr key={track.id}>
-                  <td>{track.title}</td>
-                  <td>
-                    <img
-                      src={`http://localhost:8080/uploads/images/${track.imagePath}`}
-                      alt="Artist Profile"
-                      alt=""
-                      srcset=""
-                    />
-                  </td>
-                  <td>
-                    <audio
-                      controls
-                      src={`http://localhost:8080/uploads/audio/${track.audioPath}`}
-                    />
-                  </td>
-
-                  <td>{track.artistName}</td>
-                  <td>{track.album || "Single"}</td>
-                  <td>{track.category.name}</td>
-                  <td>
-                    <button onClick={() => handleEdit(track)}>✏️</button>
-                    <button onClick={() => handleDelete(track.id)}>🗑️</button>
-                  </td>
+          <>
+            {" "}
+            <h4>Track List</h4>
+            <table className="track-table">
+              <thead>
+                <tr>
+                  <th>Track</th>
+                  <th>Image</th>
+                  <th>Audio</th>
+                  <th>Artist</th>
+                  <th>Album</th>
+                  <th>Genre</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {tracks.map((track) => (
+                  <tr key={track.id}>
+                    <td>{track.title}</td>
+                    <td>
+                      <img
+                        src={`http://localhost:8080/uploads/images/${track.imagePath}`}
+                        alt="Artist Profile"
+                        alt=""
+                        srcset=""
+                      />
+                    </td>
+                    <td>
+                      <audio
+                        controls
+                        src={`http://localhost:8080/uploads/audio/${track.audioPath}`}
+                      />
+                    </td>
+
+                    <td>{track.artistName}</td>
+                    <td>{track.album || "Single"}</td>
+                    <td>{track.category.name}</td>
+                    <td>
+                      <button onClick={() => handleEdit(track)}>✏️</button>
+                      <button onClick={() => handleDelete(track.id)}>🗑️</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </>
         )}
       </section>
     </div>

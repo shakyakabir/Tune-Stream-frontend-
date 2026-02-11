@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import { MdOutlinePeopleOutline } from "react-icons/md";
 
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import "./ArtistSidebar.scss";
 
@@ -51,11 +51,12 @@ const sidebarbrowserdata = [
 
 const ArtistSidebar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const handleLogout = () => {
     navigate("/login");
     localStorage.clear();
   };
-  const Navigate = useNavigate();
+
   return (
     <div className="artist-sidebar">
       <div className="artist-sidebar-logo">
@@ -73,7 +74,12 @@ const ArtistSidebar = () => {
                 className="artist-sidebar-container-browse-ul-list"
                 key={index}
               >
-                <li onClick={() => Navigate(data.path)}>
+                <li
+                  onClick={() => navigate(data.path)}
+                  className={`sidebar-browse-ul-list-item ${
+                    location.pathname === data.path ? "active" : ""
+                  }`}
+                >
                   <span>{data.icon}</span>
                   <span> {data.name}</span>
                 </li>
@@ -90,7 +96,10 @@ const ArtistSidebar = () => {
               <p>@kabirsha</p>
             </div>
           </div>
-          <div onClick={handleLogout}>
+          <div
+            className="artist-sidebar-container-profile-logout"
+            onClick={handleLogout}
+          >
             <p>Logout</p>
           </div>
         </div>

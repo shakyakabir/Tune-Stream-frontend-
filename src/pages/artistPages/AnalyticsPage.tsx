@@ -80,6 +80,27 @@ const AnalyticsPage: React.FC = () => {
 
   return (
     <div className="analytics">
+      <h2
+        style={{
+          color: "#fff",
+          marginBottom: "0px",
+          marginTop: "0",
+          fontSize: "2rem",
+        }}
+      >
+        Analytics Overview
+      </h2>
+      <p
+        style={{
+          color: "#a9a9a99f",
+          marginBottom: "20px",
+          marginTop: "0",
+          fontSize: "1rem",
+        }}
+      >
+        Track your performance with real-time insights into streams, audience
+        growth, and engagement to understand what’s working and where to improve
+      </p>
       {/* TOP CARDS */}
       <div className="analytics-cards">
         {statsData.map((item, index) => (
@@ -96,12 +117,13 @@ const AnalyticsPage: React.FC = () => {
         <LineChart />
       </div>
       <div
-        style={{
-          backgroundColor: "#0d0f14",
-          padding: "20px",
-          borderRadius: "16px",
-          // maxWidth: "450px", 
-        }}
+        className="analytics-tracks"
+        // style={{
+        //   backgroundColor: "#0d0f14",
+        //   padding: "20px",
+        //   borderRadius: "16px",
+        //   // maxWidth: "450px",
+        // }}
       >
         <h2 style={{ color: "#fff", marginBottom: "20px", fontSize: "1.2rem" }}>
           Top Earning Tracks
